@@ -73,7 +73,7 @@ public class UsuarioNormal extends JFrame {
         usuario.setHorizontalAlignment(SwingConstants.LEFT);
         //panel.add(usuario);
 
-        nameUsuario = new JLabel(" Name user");
+        nameUsuario = new JLabel(Static.USUARIONORMAL);
         //nameUsuario.setBackground(new Color(0, 00, 00, 0));
         nameUsuario.setBounds(900, 60, 150, 100);
         nameUsuario.setFont(new Font("arial", 0, 25));

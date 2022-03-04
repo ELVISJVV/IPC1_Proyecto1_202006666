@@ -25,10 +25,10 @@ import javax.swing.JTextArea;
  */
 public class CargaMasiva extends JFrame {
 
-    public JPanel plCarga; //Panel para colocar el área de texto
-    public JTextArea txaEntrada; //Área de texto para entrada de productos
-    public JScrollPane scpScroll; //Este panel permite tener barras de desplazamiento verticales y horizontales
-    public JButton bttCargar; //Botón para cargar datos masivamente
+    public JPanel plCarga; 
+    public JTextArea txaEntrada; 
+    public JScrollPane scpScroll; 
+    public JButton bttCargar,btnsalir; 
 
     public CargaMasiva() {
         definirPropiedades(); //Definir propiedades de esta ventana por separado
@@ -75,6 +75,19 @@ public class CargaMasiva extends JFrame {
             }
         });
         plCarga.add(bttCargar);
+        
+         btnsalir = new JButton(" Atras ");
+        btnsalir.setBounds(900 , 650, 150, 42);
+        btnsalir.setFont(new Font("arial", Font.BOLD, 20));
+        btnsalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                   UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
+                  ventanaAdmin.setVisible(true);
+                  dispose();
+            }
+        });
+        plCarga.add(btnsalir);
 
     }
 
@@ -103,7 +116,7 @@ public class CargaMasiva extends JFrame {
             }
         }
 
-        JOptionPane.showMessageDialog(null, "Carga completa!", "Mensaje", JOptionPane.INFORMATION_MESSAGE); //Mensaje cuando finaliza la carga.
+        JOptionPane.showMessageDialog(null, "La carga ha sido completada", "Mensaje", JOptionPane.INFORMATION_MESSAGE); //Mensaje cuando finaliza la carga.
 
         UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
         ventanaAdmin.setVisible(true);

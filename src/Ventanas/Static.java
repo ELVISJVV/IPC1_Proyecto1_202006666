@@ -30,7 +30,7 @@ class Static {
     static int contadorcontra = 0;
     static int contadorconfirmarcontra = 0;
 
-        
+        static String USUARIONORMAL ="";    
     
     
 }

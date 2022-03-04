@@ -99,7 +99,7 @@ public class Login extends JFrame {
 
     private void colocarBotones() {
         ingresar = new JButton();
-        ingresar.setText("ingresar");
+        ingresar.setText("Ingresar");
         ingresar.setBounds(120, 450, 120, 42);
         ingresar.setEnabled(true); // encendido o apagado del boton     
         //boton1.setForeground(Color.BLUE);
@@ -126,18 +126,42 @@ public class Login extends JFrame {
                 si contrasena ingresada es igual a un array de contrasenas que se tendran entonces
                 luego otro if para saber si es usuario normal o admin
                  */
+                int pos = -1;
+                for (int i = 0; i < 100; i++) {
+                    if (nombre.equals(Static.usuarioAlmacenado[i])) {
+
+                        pos = i;
+                    }
+
+                }
+
                 if (nombre.equals("admin") && pass.equals("password")) {
                     UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
                     ventanaAdmin.setVisible(true);
                     dispose();
-
-                } else {
-                    JOptionPane.showMessageDialog(ingresar,
-                            "Credenciales erroneas, por favor intente nuevamente",
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-
+                }else if(nombre.equals("admin") && !pass.equals("password")){    
+                       JOptionPane.showMessageDialog(ingresar,
+                        "Credenciales erroneas, por favor intente nuevamente",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                       
+                } else if (pos != -1) {
+                    if (nombre.equals(Static.usuarioAlmacenado[pos]) && pass.equals(Static.contraAlmacenada[pos])) {
+                        Static.USUARIONORMAL= Static.usuarioAlmacenado[pos];
+                        UsuarioNormal ventanUserNormal = new UsuarioNormal();
+                        ventanUserNormal.setVisible(true);
+                        dispose();
+                        }else {
+                           JOptionPane.showMessageDialog(ingresar,
+                        "Credenciales erroneas, por favor intente nuevamente",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                    }
+                } else  
+                JOptionPane.showMessageDialog(ingresar,
+                        "El  usuario no existe, por favor contactese con el administrador",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         };
         ingresar.addActionListener(eventoIngresar);
