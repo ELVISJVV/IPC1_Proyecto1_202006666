@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package Ventanas;
 
 /**
  *
@@ -11,18 +11,20 @@ package Clases;
  */
 public class Biblioteca {
 
-    private static Bibliografia[] almacenBibliografias = new Bibliografia[100];
-    private static int cantidadBiBibliografias=0;
+    static Bibliografia[] almacenBibliografias = new Bibliografia[100];
+   
 
     public static void colocarBibliografia(Bibliografia nuevaBibliografia) {
         for (int i = 0; i < almacenBibliografias.length; i++) {
             if (almacenBibliografias[i] == null) {
                 almacenBibliografias[i] = nuevaBibliografia;
-                cantidadBiBibliografias++; //Incrementar la cantidad de comics con cada Comic agregado
+               Static.cantidadBiBibliografias++;//Incrementar la cantidad de comics con cada Comic agregado
                 return;
             }
         }
     }
+
+    
 
     public static void mostrarBibliografias() {
         for (Bibliografia bibliografia : almacenBibliografias) { //Recorrido For Each, para cada objeto Comic en el arreglo de objetos Comic(almacenComis)
@@ -51,7 +53,7 @@ public class Biblioteca {
      */
     public static String[][] obtenerDatos() {
 
-        String[][] datos = new String[cantidadBiBibliografias][11]; //Crear nueva matriz de cantidadComics filas x 7 columnas. Será retornada al final.
+        String[][] datos = new String[Static.cantidadBiBibliografias][11]; //Crear nueva matriz de cantidadComics filas x 7 columnas. Será retornada al final.
 
         int posicion = 0; //Contador de posiciones para recorr arreglo de datos y colocar en cada posición un Comic. Inicia en 0. 
 
@@ -61,17 +63,17 @@ public class Biblioteca {
 
                 //Crear nuevo arreglo de tipo String, con los atributos del objeto. 
                 String[] fila = {
-                    bibliografia.getTipo(),
-                    bibliografia.getAutor(),
-                    bibliografia.getTitulo(),
-                    bibliografia.getDescripcion(),
-                    bibliografia.getStrEdicion(),
-                    bibliografia.getTemasConcatenados(),
-                    bibliografia.getFrecuancia(),
-                    bibliografia.getStrEjemplares(),
-                    bibliografia.getArea(),
-                    bibliografia.getStrCopias(),
-                    bibliografia.getStrDisponibles()
+                    bibliografia.getTipo(),//0
+                    bibliografia.getAutor(),//1
+                    bibliografia.getTitulo(),//2
+                    bibliografia.getDescripcion(), //3
+                    bibliografia.getStrEdicion(),//4
+                    bibliografia.getTemasConcatenados(), //5
+                    bibliografia.getFrecuancia(), //6
+                    bibliografia.getStrEjemplares(), //7
+                    bibliografia.getArea(), //8
+                    bibliografia.getStrCopias(), //9
+                    bibliografia.getStrDisponibles() //10
                 };
                 datos[posicion] = fila; //Almacenar la fila en la posición actual del arreglo datos
                 posicion++; //Correr una posición 
@@ -82,4 +84,6 @@ public class Biblioteca {
 
     }
 
+   
+    
 }

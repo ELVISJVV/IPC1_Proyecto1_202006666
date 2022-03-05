@@ -242,7 +242,7 @@ public class EliminarUsuario extends JFrame {
                 }
                 if (pos == -1) {
                     //System.out.println("No se encontro el usuario");
-                    JOptionPane.showMessageDialog(buscar,
+                    JOptionPane.showMessageDialog(eliminar,
                             "Ingrese un usuario",
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
@@ -301,7 +301,7 @@ public class EliminarUsuario extends JFrame {
                     usuario1.setText("");
                     rol1.setText("");
                     buscar1.setText("");
-                    JOptionPane.showMessageDialog(buscar,
+                    JOptionPane.showMessageDialog(eliminar,
                             "Se ha eliminado el usuario con exito",
                             "USUARIO ELIMINADO",
                             JOptionPane.ERROR_MESSAGE);

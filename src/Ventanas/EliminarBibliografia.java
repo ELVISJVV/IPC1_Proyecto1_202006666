@@ -1,16 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Ventanas;
 
-import Ventanas.Bibliografia;
-import Ventanas.Biblioteca;
 import Utilidades.MetodosSueltos;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -22,22 +23,25 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class CargaIndividual extends JFrame {
+/**
+ *
+ * @author Elvis
+ */
+public class EliminarBibliografia extends JFrame {
 
     private JRadioButton rb1;
     private JRadioButton rb2;
     private JRadioButton rb3;
     private JRadioButton rb4;
     private JPanel panel;
-    private JLabel lbTipo, lbAutor, lbTitulo, lbEdicion, lbDescripcion, lbTemas, lbFrecuencia, lbEjemplares, lbCopias, lbDisponibles, lbArea;
+    private JLabel lbTipo, lbAutor, lbEdicion, lbDescripcion, lbTemas, lbFrecuencia, lbEjemplares, lbCopias, lbDisponibles, lbArea;
     private JComboBox listadespegable1;
-    private String tipo = "1";
-    private JButton crear, atras;
-    private JTextField autor1, titulo1, edicion1, descripcion1, temas1, frecuencia1, ejemplares1, copias1, disponibles1, area1;
+    private String tipo = "0";
+    private JButton eliminar, atras, buscar;
+    private JTextField tipo1, autor1, edicion1, descripcion1, temas1, frecuencia1, ejemplares1, copias1, disponibles1, area1, buscar1;
 
-    public CargaIndividual() {
-
-        setTitle("                                                                                                                                     CARGA INDIVIDUAL ");
+    public EliminarBibliografia() {
+        setTitle("                                                                                                                                     ELIMINAR BIBLIOGRAFIA ");
 
         this.setSize(1300, 800);  //tamano de la ventana
         setMinimumSize(new Dimension(1300, 800)); // tamano minimo de ventana
@@ -52,7 +56,7 @@ public class CargaIndividual extends JFrame {
 
     private void iniciarComponentes() {
         colocarPanel();
-        colocarRadioBotones();
+        //colocarRadioBotones();
         colocarLabel();
         colocarBotones();
         colocarAreasDeTexto();
@@ -60,7 +64,7 @@ public class CargaIndividual extends JFrame {
         // condicion();
         //eventoAccion();
         eventoBotones();
-        eventoCrear();
+        eventoAccionEliminar();
     }
 
     private void colocarPanel() {
@@ -85,23 +89,18 @@ public class CargaIndividual extends JFrame {
     }
 
     private void colocarLabel() {
+
         lbTipo = new JLabel("Tipo");
-        lbTipo.setBounds(40, 50, 200, 60);
+        lbTipo.setBounds(40, 150, 200, 60);
         lbTipo.setFont(new Font("arial", 0, 25));
         lbTipo.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(lbTipo);
 
         lbAutor = new JLabel("Autor");
-        lbAutor.setBounds(40, 150, 200, 60);
+        lbAutor.setBounds(40, 250, 200, 60);
         lbAutor.setFont(new Font("arial", 0, 25));
         lbAutor.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(lbAutor);
-
-        lbTitulo = new JLabel("Título");
-        lbTitulo.setBounds(40, 250, 200, 60);
-        lbTitulo.setFont(new Font("arial", 0, 25));
-        lbTitulo.setHorizontalAlignment(SwingConstants.LEFT);
-        panel.add(lbTitulo);
 
         lbEdicion = new JLabel("Edición");
         lbEdicion.setBounds(40, 350, 200, 60);
@@ -154,12 +153,17 @@ public class CargaIndividual extends JFrame {
     }
 
     private void colocarBotones() {
+        buscar = new JButton();
+        buscar.setText("Buscar");
+        buscar.setBounds(40, 50, 128, 48);
+        buscar.setFont(new Font("arial", Font.BOLD, 20));
+        panel.add(buscar);
 
-        crear = new JButton();
-        crear.setText("Crear");
-        crear.setBounds(430, 660, 128, 48);
-        crear.setFont(new Font("arial", Font.BOLD, 20));
-        panel.add(crear);
+        eliminar = new JButton();
+        eliminar.setText("Eliminar");
+        eliminar.setBounds(430, 660, 128, 48);
+        eliminar.setFont(new Font("arial", Font.BOLD, 20));
+        panel.add(eliminar);
 
         atras = new JButton();
         atras.setText("Atras");
@@ -169,21 +173,29 @@ public class CargaIndividual extends JFrame {
     }
 
     private void colocarAreasDeTexto() {
+        buscar1 = new JTextField();
+        buscar1.setBounds(250, 50, 300, 33);
+        //buscar1.setEditable(false);
+        panel.add(buscar1);
+
+        tipo1 = new JTextField();
+        tipo1.setBounds(250, 160, 300, 33);
+        tipo1.setEditable(false);
+        panel.add(tipo1);
 
         autor1 = new JTextField();
-        autor1.setBounds(250, 160, 300, 33);
+        autor1.setBounds(250, 260, 300, 33);
+        autor1.setEditable(false);
         panel.add(autor1);
-
-        titulo1 = new JTextField();
-        titulo1.setBounds(250, 260, 300, 33);
-        panel.add(titulo1);
 
         edicion1 = new JTextField();
         edicion1.setBounds(250, 360, 300, 33);
+        edicion1.setEditable(false);
         panel.add(edicion1);
 
         descripcion1 = new JTextField();
         descripcion1.setBounds(250, 460, 300, 33);
+        descripcion1.setEditable(false);
         panel.add(descripcion1);
         /*
         rol1 = new JTextField();
@@ -193,22 +205,27 @@ public class CargaIndividual extends JFrame {
 
         temas1 = new JTextField();
         temas1.setBounds(250, 560, 300, 33);
+        temas1.setEditable(false);
         panel.add(temas1);
 
         frecuencia1 = new JTextField();
         frecuencia1.setBounds(810, 160, 300, 33);
+        frecuencia1.setEditable(false);
         panel.add(frecuencia1);
 
         ejemplares1 = new JTextField();
         ejemplares1.setBounds(810, 260, 300, 33);
+        ejemplares1.setEditable(false);
         panel.add(ejemplares1);
 
         copias1 = new JTextField();
         copias1.setBounds(810, 360, 300, 33);
+        copias1.setEditable(false);
         panel.add(copias1);
 
         disponibles1 = new JTextField();
         disponibles1.setBounds(810, 460, 300, 33);
+        disponibles1.setEditable(false);
         panel.add(disponibles1);
 
         area1 = new JTextField();
@@ -253,30 +270,6 @@ public class CargaIndividual extends JFrame {
 
     }
 
-    private void condicion() {
-        Object object = listadespegable1.getSelectedItem();
-        String bibliografiaTipo = String.valueOf(object);
-        if (bibliografiaTipo.equals("Revista")) {
-            frecuencia1.setEditable(true);
-            area1.setEditable(false);
-            area1.setText("");
-            ejemplares1.setEditable(true);
-        } else if (bibliografiaTipo.equals("Libro")) {
-            area1.setEditable(false);
-            frecuencia1.setEditable(false);
-            ejemplares1.setEditable(false);
-            area1.setText("");
-            ejemplares1.setText("");
-            frecuencia1.setText("");
-        } else if (bibliografiaTipo.equals("Tesis")) {
-            area1.setEditable(true);
-            ejemplares1.setEditable(false);
-            frecuencia1.setEditable(false);
-            ejemplares1.setText("");
-            frecuencia1.setText("");
-        }
-    }
-
     private void eventoAccion() {
 
         ActionListener eventoAccion1 = new ActionListener() {
@@ -287,10 +280,10 @@ public class CargaIndividual extends JFrame {
                 ejemplares1.setEditable(true);
                 area1.setText("");
                 if (rb1.isSelected()) {
-                    tipo = "1";
+                    tipo = "0";
 
                 } else if (rb2.isSelected()) {
-                    tipo = "0";
+                    tipo = "1";
                 } else if (rb3.isSelected()) {
                     tipo = "2";
                 }
@@ -310,10 +303,10 @@ public class CargaIndividual extends JFrame {
                 ejemplares1.setText("");
                 frecuencia1.setText("");
                 if (rb1.isSelected()) {
-                    tipo = "1";
+                    tipo = "0";
 
                 } else if (rb2.isSelected()) {
-                    tipo = "0";
+                    tipo = "1";
                 } else if (rb3.isSelected()) {
                     tipo = "2";
                 }
@@ -332,10 +325,10 @@ public class CargaIndividual extends JFrame {
                 frecuencia1.setText("");
 
                 if (rb1.isSelected()) {
-                    tipo = "1";
+                    tipo = "0";
 
                 } else if (rb2.isSelected()) {
-                    tipo = "0";
+                    tipo = "1";
                 } else if (rb3.isSelected()) {
                     tipo = "2";
                 }
@@ -361,119 +354,147 @@ public class CargaIndividual extends JFrame {
 
     }
 
-    private void eventoCrear() {
-        ActionListener eventoCrear = new ActionListener() {
+    private void eventoAccionEliminar() {
+        ActionListener eventoBuscar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String errores = "";
+                // String errores = "";
                 // Object object = listadespegable1.getSelectedItem();
                 // String tipo = String.valueOf(object);
                 //  Object object = listadespegable1.getSelectedItem();
                 //  String bibliografiaTipo = String.valueOf(object);
                 // String tipo = (String) listadespegable1.getSelectedItem();
                 //int radionButtonId =grupo.getCheckedRadioButtonId();
+                String buscarTitulo = buscar1.getText();
+                Static.tituloAlmacenado[Static.bibliografiaCreada] = Static.tituloAlmacenado[Static.bibliografiaCreada];
+                int pos = -1;
+                for (int i = 0; i < 100; i++) {
+                    if (buscarTitulo.equals(Static.tituloAlmacenado[i])) {
+                        pos = i;
+                    }
 
-                String autor = autor1.getText();
-                String titulo = titulo1.getText();
-                String descripcion = descripcion1.getText();
-                String edicion = edicion1.getText();
-                String temas = temas1.getText();
-                String frecuencia = frecuencia1.getText();
-                String ejemplares = ejemplares1.getText();
-                String area = area1.getText();
-                String copias = copias1.getText();
-                String disponibles = disponibles1.getText();
-
-                //  String rol = "", rol2 ="" ;
-                if (autor.isEmpty()) {
-                    errores += " - El autor no puede estar vacio \n";
                 }
 
-                if (titulo.isEmpty()) {
-                    errores += " - El tirulo no puede estar vacio \n";
-                }
-
-                if (descripcion.isEmpty()) {
-                    errores += " - La descripcion no puede estar vacia \n";
-                }
-
-                if (copias.isEmpty()) {
-                    errores += " - Las cppias no pueden estar vacias \n";
+                // String datos[][] = Biblioteca.obtenerDatos();
+                if (pos == -1) {
+                    //System.out.println("No se encontro el usuario");
+                    JOptionPane.showMessageDialog(buscar,
+                            "NO SE ENCONTRÓ LA BIBLIOGRAFIA",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 } else {
-                    if (!MetodosSueltos.validaNumeroEntero_Exp(copias)) {
-                        errores += " - Las copias no tienen el formato correcto \n";
+                    System.out.println("Si se encontró la bibliografia");
+                    //tipo1.setText(datos[pos][0]);
+                    tipo1.setText(Static.tipoAlmacenado[pos]);
+                    String tipos = tipo1.getText();
+                    if (tipos.equals("0")) {
+                        tipo1.setText("Libro");
+                    } else if (tipos.equals("1")) {
+                        tipo1.setText("Revista");
+                    } else if (tipos.equals("2")) {
+                        tipo1.setText("Tesis");
                     }
+                    autor1.setText(Static.autorAlmacenado[pos]);
+                    descripcion1.setText(Static.descripcionAlmacenado[pos]);
+                    edicion1.setText(Static.edicionAlmacenado[pos]);
+                    temas1.setText(Static.temasAlmacenados[pos]);
+                    frecuencia1.setText(Static.frecuenciaAlmacenado[pos]);
+                    ejemplares1.setText(Static.ejemplaresAlmacenado[pos]);
+                    area1.setText(Static.areaAlmacenado[pos]);
+                    copias1.setText(Static.copiasAlmacenado[pos]);
+                    disponibles1.setText(Static.disponiblesAlmacenado[pos]);
+
                 }
-                if (disponibles.isEmpty()) {
-                    errores += " - La disponibilidad no puede estar vacia \n";
+
+            }
+
+        };
+        buscar.addActionListener(eventoBuscar);
+
+        ActionListener eventoEliminar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String buscarTitulo = buscar1.getText();
+                Static.tituloAlmacenado[Static.bibliografiaCreada] = Static.tituloAlmacenado[Static.bibliografiaCreada];
+                int pos = -1;
+                for (int i = 0; i < 100; i++) {
+                    if (buscarTitulo.equals(Static.tituloAlmacenado[i])) {
+                        pos = i;
+                    }
+
+                }
+
+                if (pos == -1) {
+                    //System.out.println("No se encontro el usuario");
+                    JOptionPane.showMessageDialog(eliminar,
+                            "Ingrese una Bibliografia",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 } else {
-                    if (!MetodosSueltos.validaNumeroEntero_Exp(disponibles)) {
-                        errores += " - La disponibilidad no tiene el formato correcto \n";
-                    }
-                }
+                    System.out.println("Si se encontro la bibliografia");
 
-                if (edicion.isEmpty()) {
-                    errores += " - La edicion no puede estar vacia \n";
-                } else {
-                    if (!MetodosSueltos.validaNumeroEntero_Exp(edicion)) {
-                        errores += " - La edicion no tiene el formato correcto \n";
-                    }
-                }
-
-                if (temas.isEmpty()) {
-                    errores += " - Los temas no pueden estar vacios \n";
-                }
-
-                if (tipo.equals("1")) {
-                    if (frecuencia.isEmpty()) {
-                        errores += " - La frecuencia no puede estar vacia \n";
-                    }
-                    if (ejemplares.isEmpty()) {
-                        errores += " - Los ejemplares no pueden estar vacios \n";
-                    } else {
-                        if (!MetodosSueltos.validaNumeroEntero_Exp(ejemplares)) {
-                            errores += " - Los ejemplares no tienen el formato correcto \n";
-                        }
-                    }
-                } else if (tipo.equals("2")) {
-                    if (area.isEmpty()) {
-                        errores += " - El area no puede estar vacia \n";
-                    }
-                } else if (tipo.equals("0")) {
-
-                }
-
-                String validacion = "";
-                for (int i = 0; i < Static.bibliografiaCreada; i++) {
-                    if (titulo.equals(Static.tituloAlmacenado[i])) {
-                        errores += " - Esta bibliografia ya existe en el sistema \n";
-                        validacion = "error";
-                        //System.out.println(Static.usuarioCreado);
+                    for (int i = pos; i < Static.tipoAlmacenado.length - 1; i++) {
+                        Static.tipoAlmacenado[i] = Static.tipoAlmacenado[i + 1];
                     }
 
-                }
-
-                if (errores.isEmpty()) {
-
-                    Static.tipoAlmacenado[Static.bibliografiaCreada] = tipo;
-                    Static.autorAlmacenado[Static.bibliografiaCreada] = autor;
-                    Static.tituloAlmacenado[Static.bibliografiaCreada] = titulo;
-                    Static.descripcionAlmacenado[Static.bibliografiaCreada] = descripcion;
-                    Static.edicionAlmacenado[Static.bibliografiaCreada] = edicion;
-                    Static.temasAlmacenados[Static.bibliografiaCreada] = temas;
-                    Static.frecuenciaAlmacenado[Static.bibliografiaCreada] = frecuencia;
-                    Static.ejemplaresAlmacenado[Static.bibliografiaCreada] = ejemplares;
-                    Static.areaAlmacenado[Static.bibliografiaCreada] = area;
-                    Static.copiasAlmacenado[Static.bibliografiaCreada] = copias;
-                    Static.disponiblesAlmacenado[Static.bibliografiaCreada] = disponibles;
-                    Static.bibliografiaCreada++;
-
-                    // Bibliografia nuevaBibliografia = new Bibliografia(tipo, autor, titulo, descripcion, edicion, temas, frecuencia, ejemplares, area, copias, disponibles);
-                    //Biblioteca.colocarBibliografia(nuevaBibliografia); //Se ubica el comic en un arreglo de Comics
-                    JOptionPane.showMessageDialog(crear, "Bibliografia Creada Con Exito", "     BIBLIOGRAFIA", WIDTH);
-
+                    for (int i = pos; i < Static.autorAlmacenado.length - 1; i++) {
+                        Static.autorAlmacenado[i] = Static.autorAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.tituloAlmacenado.length - 1; i++) {
+                        Static.tituloAlmacenado[i] = Static.tituloAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.descripcionAlmacenado.length - 1; i++) {
+                        Static.descripcionAlmacenado[i] = Static.descripcionAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.edicionAlmacenado.length - 1; i++) {
+                        Static.edicionAlmacenado[i] = Static.edicionAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.temasAlmacenados.length - 1; i++) {
+                        Static.temasAlmacenados[i] = Static.temasAlmacenados[i + 1];
+                    }
+                    for (int i = pos; i < Static.frecuenciaAlmacenado.length - 1; i++) {
+                        Static.frecuenciaAlmacenado[i] = Static.frecuenciaAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.ejemplaresAlmacenado.length - 1; i++) {
+                        Static.ejemplaresAlmacenado[i] = Static.ejemplaresAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.areaAlmacenado.length - 1; i++) {
+                        Static.areaAlmacenado[i] = Static.areaAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.copiasAlmacenado.length - 1; i++) {
+                        Static.copiasAlmacenado[i] = Static.copiasAlmacenado[i + 1];
+                    }
+                    for (int i = pos; i < Static.disponiblesAlmacenado.length - 1; i++) {
+                        Static.disponiblesAlmacenado[i] = Static.disponiblesAlmacenado[i + 1];
+                    }
+                    Static.cantidadBiBibliografias--;
+                    
+                    
+                    // eliminarFila(Biblioteca.obtenerDatos(), pos);
+                    /*
+                     for (int i = pos; i < datoss.length - 1; i++) {
+                       datoss[i] = datoss[i + 1];
+//
+               }
+                
+               
+                
+              
+                for (int i = 0; i < datoss.length; i++) {
+                         for (int j = 0; j < datoss[0].length; j++) {
+                             System.out.println(datoss[i][j]+"");
+                         }
+                         System.out.print("");
+                     }
+                     */
+                    // Static.cantidadBiBibliografias--;
+                    // eliminarFila(datos, pos);
+                    JOptionPane.showMessageDialog(eliminar,
+                            "Se ha eliminado la bibliografia con exito",
+                            "BIBLIOGRAFIA ELIMINADA",
+                            JOptionPane.ERROR_MESSAGE);
                     autor1.setText("");
-                    titulo1.setText("");
+                    tipo1.setText("");
                     descripcion1.setText("");
                     edicion1.setText("");
                     temas1.setText("");
@@ -482,18 +503,11 @@ public class CargaIndividual extends JFrame {
                     area1.setText("");
                     copias1.setText("");
                     disponibles1.setText("");
-
-                    //System.out.println(Static.usuarioCreado);
-                } else {
-                    JOptionPane.showMessageDialog(crear,
-                            errores,
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
                 }
 
             }
-
         };
-        crear.addActionListener(eventoCrear);
+        eliminar.addActionListener(eventoEliminar);
     }
+
 }

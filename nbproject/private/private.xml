@@ -3,27 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="POO">
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/Login.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Clases/Usuario.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CargaIndividualTesis.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/EliminarUsuario.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CargaIndividual.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CargaIndividualRevista.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/PantallaInicio.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/UsuarioAdmin.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/ModificarUsuario.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/VerBibliografias.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/UsuarioNormal.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CrearBibliografia.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Utilidades/MetodosSueltos.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CrearUsuario.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/Principal.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Clases/Bibliografia.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CargaIndividualLibro.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/VerUsuarios.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/Static.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Clases/Biblioteca.java</file>
-            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/src/Ventanas/CargaMasiva.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/EliminarUsuario.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/CrearUsuario.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/Login.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/CargaIndividual.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/UsuarioNormal.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/EliminarBibliografia.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Clases/Biblioteca.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/Principal.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/VerBibliografias.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/Static.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/ModificarUsuario.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Clases/Bibliografia.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/CrearBibliografia.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/UsuarioAdmin.java</file>
+            <file>file:/A:/Programas%20Java/Proyecto1_Biblioteca/IPC1_Proyecto1_202006666/src/Ventanas/CargaMasiva.java</file>
         </group>
     </open-files>
 </project-private>

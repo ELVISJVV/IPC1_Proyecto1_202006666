@@ -275,6 +275,7 @@ public class ModificarUsuario extends JFrame {
                     }
 
                 }
+                
                 // guardando los valores de las modificaciones en nuevas variables
                 String nombre = nombre1.getText();
                 String apellido = apellido1.getText();

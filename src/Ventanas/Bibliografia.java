@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package Ventanas;
 
 /**
  *
@@ -62,6 +62,9 @@ public class Bibliografia {
         this.strCopias = copias;
         this.strDisponibles = disponibles;
 
+    }
+    public Bibliografia(String [][] matriz){
+        
     }
 
     public void mostrarTemas() {

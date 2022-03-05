@@ -5,7 +5,7 @@
  */
 package Ventanas;
 
-import Clases.Biblioteca;
+import Ventanas.Biblioteca;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -35,11 +35,11 @@ public class VerBibliografias  extends JFrame{
      private JTable tbBiblio;
      private DefaultTableModel modelo;
    // private JScrollPane scroll;
-  private String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
-      public  String datos[][] = Biblioteca.obtenerDatos(); //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
+  //private String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
+       //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
 
     public VerBibliografias (){
-         setTitle("                                                                                                                                     VER USUARIOS ");
+         setTitle("                                                                                                                                     VER BIBLIOGRAFIAS  ");
        
         this.setSize(1300, 800);  //tamano de la ventana
         setMinimumSize(new Dimension(1300, 800)); // tamano minimo de ventana
@@ -94,47 +94,73 @@ panel = new JPanel();
     }
 
      private void colocarTablas() {
-          /*
+         
          modelo = new DefaultTableModel();
 
         //modelo.addColumn("NO.");
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Usuario");
-        modelo.addColumn("Rol");
-        modelo.addColumn("Contraseña");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Edicion");
+        modelo.addColumn("Temas");
+        modelo.addColumn("Frecuencia");
+        modelo.addColumn("Ejemplares");
+        modelo.addColumn("Area");
+        modelo.addColumn("Copias");
+        modelo.addColumn("Disponibles");
+        
 
-        String[] matriz = new String[6];
-        matriz[0] = Static.idAlmacenado[Static.usuarioCreado];
+        String[] matriz = new String[11];
+        matriz[0] = Static.tipoAlmacenado[Static.bibliografiaCreada];
+        matriz[1] = Static.autorAlmacenado[Static.bibliografiaCreada];
+        matriz[2] = Static.tituloAlmacenado[Static.bibliografiaCreada];
+        matriz[3] = Static.descripcionAlmacenado[Static.bibliografiaCreada];
+        matriz[4] = Static.edicionAlmacenado[Static.bibliografiaCreada];
+        matriz[5] = Static.temasAlmacenados[Static.bibliografiaCreada];
+        matriz[6] = Static.frecuenciaAlmacenado[Static.bibliografiaCreada];
+        matriz[7] = Static.ejemplaresAlmacenado[Static.bibliografiaCreada];
+        matriz[8] = Static.areaAlmacenado[Static.bibliografiaCreada];
+        matriz[9] = Static.copiasAlmacenado[Static.bibliografiaCreada];
+        matriz[10] = Static.disponiblesAlmacenado[Static.bibliografiaCreada];
 
-        matriz[1] = Static.nombreAlmacenado[Static.usuarioCreado];
-        matriz[2] = Static.apellidoAlmacenado[Static.usuarioCreado];
-        matriz[3] = Static.usuarioAlmacenado[Static.usuarioCreado];
-        matriz[4] = Static.rolAlmacenado[Static.usuarioCreado];
-        matriz[5] = Static.contraAlmacenada[Static.usuarioCreado];
+       
 
-        for (int i = 0; i < Static.usuarioCreado; i++) {
-            matriz[0] = Static.idAlmacenado[i];
-            matriz[1] = Static.nombreAlmacenado[i];
-            matriz[2] = Static.apellidoAlmacenado[i];
-            matriz[3] = Static.usuarioAlmacenado[i];
-            matriz[4] = Static.rolAlmacenado[i];
-            matriz[5] = Static.contraAlmacenada[i];
+        for (int i = 0; i < Static.bibliografiaCreada; i++) {
+          matriz[0] = Static.tipoAlmacenado[i];
+        matriz[1] = Static.autorAlmacenado[i];
+        matriz[2] = Static.tituloAlmacenado[i];
+        matriz[3] = Static.descripcionAlmacenado[i];
+        matriz[4] = Static.edicionAlmacenado[i];
+        matriz[5] = Static.temasAlmacenados[i];
+        matriz[6] = Static.frecuenciaAlmacenado[i];
+        matriz[7] = Static.ejemplaresAlmacenado[i];
+        matriz[8] = Static.areaAlmacenado[i];
+        matriz[9] = Static.copiasAlmacenado[i];
+        matriz[10] = Static.disponiblesAlmacenado[i];
             modelo.addRow(matriz);
 
         }
-         */
-         
-        tbBiblio = new JTable(datos,columnas);
-       //  tbBiblio = new JTable(modelo);
+         JTable tabla = new JTable(modelo);
 
-        tbBiblio.setBounds(100, 150, 1090, 4050);
-        panel.add(tbBiblio);
+        tabla.setBounds(100, 150, 1090, 4050);
+        panel.add(tabla);
 
-        JScrollPane scroll = new JScrollPane(tbBiblio, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setBounds(100, 150, 1090, 450);
         panel.add(scroll);
+         
+       //   Static.datos=Biblioteca.obtenerDatos();
+         
+      //  tbBiblio = new JTable(Static.datos,columnas);
+       //  tbBiblio = new JTable(modelo);
+
+     //   tbBiblio.setBounds(100, 150, 1090, 4050);
+      //  panel.add(tbBiblio);
+
+      //  JScrollPane scroll = new JScrollPane(tbBiblio, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+      //  scroll.setBounds(100, 150, 1090, 450);
+      //  panel.add(scroll);
 
         //String matriz[]=new String [];
     }

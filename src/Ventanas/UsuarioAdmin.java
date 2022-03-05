@@ -5,13 +5,13 @@
  */
 package Ventanas;
 
-import Clases.Biblioteca;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -302,5 +302,26 @@ public class UsuarioAdmin extends JFrame {
             }
         };
         btnVer1.addActionListener(eventoVerBIbliografias);
+
+        ActionListener eventoEliminarBibliografia = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                EliminarBibliografia ventanaEliminarBiblio = new EliminarBibliografia();
+                ventanaEliminarBiblio.setVisible(true);
+                dispose();
+
+            }
+        };
+        btnEliminar1.addActionListener(eventoEliminarBibliografia);
+
+        ActionListener eventoModidfiBiblio = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                ModificarBibliografia ventanaModificarBiblio = new ModificarBibliografia();
+                ventanaModificarBiblio.setVisible(true);
+                dispose();
+            }
+        };
+        btnModificar1.addActionListener(eventoModidfiBiblio);
     }
 }

@@ -6,8 +6,7 @@
 package Ventanas;
 
 
-import Clases.Bibliografia;
-import Clases.Biblioteca;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -108,8 +107,22 @@ public class CargaMasiva extends JFrame {
 
             if (atributos.length == 11) { //Las cadénas válidas de acuerdo con la entrada del usuario, deben contener 11 atributos separados por(";")
 
-                Bibliografia nuevaBibliografia = new Bibliografia(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6], atributos[7], atributos[8], atributos[9], atributos[10]);
-                Biblioteca.colocarBibliografia(nuevaBibliografia); //Se ubica el comic en un arreglo de Comics
+                Static.tipoAlmacenado[Static.bibliografiaCreada]=atributos[0];
+                Static.autorAlmacenado[Static.bibliografiaCreada]=atributos[1];
+                Static.tituloAlmacenado[Static.bibliografiaCreada]=atributos[2];
+                Static.descripcionAlmacenado[Static.bibliografiaCreada]=atributos[3];
+                Static.edicionAlmacenado[Static.bibliografiaCreada]=atributos[4];
+                Static.temasAlmacenados[Static.bibliografiaCreada]=atributos[5];
+                Static.frecuenciaAlmacenado[Static.bibliografiaCreada]=atributos[6];
+                Static.ejemplaresAlmacenado[Static.bibliografiaCreada]=atributos[7];
+                Static.areaAlmacenado[Static.bibliografiaCreada]=atributos[8];
+                Static.copiasAlmacenado[Static.bibliografiaCreada]=atributos[9];
+                Static.disponiblesAlmacenado[Static.bibliografiaCreada]=atributos[10];
+                
+                
+                Static.bibliografiaCreada++;
+               // Bibliografia nuevaBibliografia = new Bibliografia(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6], atributos[7], atributos[8], atributos[9], atributos[10]);
+                //Biblioteca.colocarBibliografia(nuevaBibliografia); //Se ubica el comic en un arreglo de Comics
 
             } else {
                 System.out.println("Fila omitida, al no cumplir con la estructura de entrada"); //Mensaje en consola si existe una cadena que no tiene todos los atritutos

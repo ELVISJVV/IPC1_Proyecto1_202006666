@@ -31,6 +31,26 @@ class Static {
     static int contadorconfirmarcontra = 0;
 
         static String USUARIONORMAL ="";    
-    
+        
+        static String[] tipoAlmacenado=new String[100];
+        static String [] autorAlmacenado=new String[100];
+        static String [] tituloAlmacenado=new String[100];
+        static String [] descripcionAlmacenado=new String[100];
+        static String [] edicionAlmacenado=new String[100];
+        static String [] temasAlmacenados=new String[100];
+        static String [] frecuenciaAlmacenado=new String[100];
+        static String [] ejemplaresAlmacenado=new String[100];
+        static String [] areaAlmacenado=new String[100];
+        static String [] copiasAlmacenado=new String[100];
+        static String [] disponiblesAlmacenado=new String[100];
+        static int bibliografiaCreada=0;
+        
+        
+        
+        
+        
+        
+    static int cantidadBiBibliografias=0;
+      static String datos[][] = Biblioteca.obtenerDatos();
     
 }
