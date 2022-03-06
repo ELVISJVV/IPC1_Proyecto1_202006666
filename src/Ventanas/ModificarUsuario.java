@@ -326,7 +326,7 @@ public class ModificarUsuario extends JFrame {
                     JOptionPane.showMessageDialog(modificar,
                             errores,
                             "Error",
-                            JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.OK_OPTION);
                 }
 
             }

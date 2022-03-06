@@ -233,11 +233,11 @@ public class CrearUsuario extends JFrame {
                 }
 
                 if (usuario.isEmpty()) {
-                    errores += " - El usuario no puede estar vacia \n";
+                    errores += " - El usuario no puede estar vacio \n";
                 }
 
                 if (id.isEmpty()) {
-                    errores += " - El ID no puede estar vacia \n";
+                    errores += " - El ID no puede estar vacio \n";
                 } else {
                     if (!MetodosSueltos.validaNumeroEntero_Exp(id)) {
                         errores += " - El ID no tiene el formato correcto \n";
@@ -279,7 +279,11 @@ public class CrearUsuario extends JFrame {
 
                     int matriz[] = new int[Static.usuarioCreado];
                     for (int i = 0; i < matriz.length; i++) {
-                        System.out.println("nombre usuario " + Static.nombreAlmacenado[i] + "  rol " + Static.rolAlmacenado[i] + " numeri id " + Static.idAlmacenado[i]);
+                        System.out.println("ID Almacenado: "+Static.idAlmacenado[i]+"\n"+
+                                "Nombre: " + Static.nombreAlmacenado[i] +"\n"+
+                                "Apellido: "+Static.apellidoAlmacenado[i]+"\n"+
+                                "Contraseña: "+Static.contraAlmacenada[i]+"\n"+
+                                "rol: " + Static.rolAlmacenado[i] + "\n" );
                     }
 
                     ID1.setText("");

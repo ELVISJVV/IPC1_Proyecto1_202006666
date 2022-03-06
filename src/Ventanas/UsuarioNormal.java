@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,10 +20,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,6 +39,7 @@ public class UsuarioNormal extends JFrame {
     private JTextArea area1, area2, area4;
     private JButton btnBuscar, btnPrestamos, btnLogout;
     private JTextField buscarTma;
+    private DefaultTableModel modelo;
 
     public UsuarioNormal() {
         setTitle("                                                                                                                                     USUARIO NORMAL ");
@@ -54,7 +58,9 @@ public class UsuarioNormal extends JFrame {
         colocarPanel();
         colocarLabel();
         colocarBotones();
+      //  colocarTabla();
         colocarAreasDeTexto();
+        eventoBuscar();
         eventoAccion();
     }
 
@@ -146,6 +152,64 @@ public class UsuarioNormal extends JFrame {
 
     }
 
+    private void colocarTabla() {
+        modelo = new DefaultTableModel();
+
+        //modelo.addColumn("NO.");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Edicion");
+        modelo.addColumn("Temas");
+        modelo.addColumn("Frecuencia");
+        modelo.addColumn("Ejemplares");
+        modelo.addColumn("Area");
+        modelo.addColumn("Copias");
+        modelo.addColumn("Disponibles");
+        modelo.addColumn("Prestar");
+
+        String[] matriz = new String[11];
+        matriz[0] = Static.tipoAlmacenado[Static.bibliografiaCreada];
+        matriz[1] = Static.autorAlmacenado[Static.bibliografiaCreada];
+        matriz[2] = Static.tituloAlmacenado[Static.bibliografiaCreada];
+        matriz[3] = Static.descripcionAlmacenado[Static.bibliografiaCreada];
+        matriz[4] = Static.edicionAlmacenado[Static.bibliografiaCreada];
+        matriz[5] = Static.temasAlmacenados[Static.bibliografiaCreada];
+        matriz[6] = Static.frecuenciaAlmacenado[Static.bibliografiaCreada];
+        matriz[7] = Static.ejemplaresAlmacenado[Static.bibliografiaCreada];
+        matriz[8] = Static.areaAlmacenado[Static.bibliografiaCreada];
+        matriz[9] = Static.copiasAlmacenado[Static.bibliografiaCreada];
+        matriz[10] = Static.disponiblesAlmacenado[Static.bibliografiaCreada];
+
+        for (int i = 0; i < Static.bibliografiaCreada; i++) {
+            matriz[0] = Static.tipoAlmacenado[i];
+            matriz[1] = Static.autorAlmacenado[i];
+            matriz[2] = Static.tituloAlmacenado[i];
+            matriz[3] = Static.descripcionAlmacenado[i];
+            matriz[4] = Static.edicionAlmacenado[i];
+            matriz[5] = Static.temasAlmacenados[i];
+            matriz[6] = Static.frecuenciaAlmacenado[i];
+            matriz[7] = Static.ejemplaresAlmacenado[i];
+            matriz[8] = Static.areaAlmacenado[i];
+            matriz[9] = Static.copiasAlmacenado[i];
+            matriz[10] = Static.disponiblesAlmacenado[i];
+            modelo.addRow(matriz);
+
+        }
+        JTable tabla = new JTable(modelo);
+        //tabla.getColumnModel().getColumn(12);
+        // tabla.setCellEditor(tabla.getDefaultEditor(Boolean.class));
+
+        tabla.setBounds(20, 400, 1250, 300);
+        panel.add(tabla);
+
+        JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBounds(20, 400, 1250, 300);
+        panel.add(scroll);
+
+    }
+
     private void colocarBotones() {
         btnLogout = new JButton();
         btnLogout.setText("Logout");
@@ -181,43 +245,70 @@ public class UsuarioNormal extends JFrame {
         };
         btnLogout.addActionListener(eventoLogout);
 
-        ActionListener eventoCrearUsuario = new ActionListener() {
+    }
+
+    private void eventoBuscar() {
+        ActionListener eventofiltro = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                CrearUsuario ventanaCrearUsuario = new CrearUsuario();
-                ventanaCrearUsuario.setVisible(true);
-                dispose();
+                String filtro = buscarTma.getText();
+                System.out.println(filtro);
+                modelo = new DefaultTableModel();
+
+                //modelo.addColumn("NO.");
+                modelo.addColumn("Tipo");
+                modelo.addColumn("Autor");
+                modelo.addColumn("Titulo");
+                modelo.addColumn("Descripcion");
+                modelo.addColumn("Edicion");
+                modelo.addColumn("Temas");
+                modelo.addColumn("Frecuencia");
+                modelo.addColumn("Ejemplares");
+                modelo.addColumn("Area");
+                modelo.addColumn("Copias");
+                modelo.addColumn("Disponibles");
+                modelo.addColumn("Prestar");
+
+                String[] matriz = new String[11];
+               
+                int cant=Static.bibliografiaCreada;
+                for (int i = 0; i < Static.bibliografiaCreada; i++) {
+                    String a =Static.temasAlmacenados[i];
+                    System.out.println(a);
+                    if (Static.tituloAlmacenado[i].contains(filtro)) {
+                        System.out.println("si se encontro");
+                        matriz[0] = Static.tipoAlmacenado[i];
+                        matriz[1] = Static.autorAlmacenado[i];
+                        matriz[2] = Static.tituloAlmacenado[i];
+                        matriz[3] = Static.descripcionAlmacenado[i];
+                        matriz[4] = Static.edicionAlmacenado[i];
+                        matriz[5] = Static.temasAlmacenados[i];
+                        matriz[6] = Static.frecuenciaAlmacenado[i];
+                        matriz[7] = Static.ejemplaresAlmacenado[i];
+                        matriz[8] = Static.areaAlmacenado[i];
+                        matriz[9] = Static.copiasAlmacenado[i];
+                        matriz[10] = Static.disponiblesAlmacenado[i];
+                        modelo.addRow(matriz);
+                    }
+                }
+
+                JTable tabla = new JTable(modelo);
+                //tabla.getColumnModel().getColumn(12);
+                // tabla.setCellEditor(tabla.getDefaultEditor(Boolean.class));
+
+                tabla.setBounds(20, 400, 1250, 300);
+                panel.add(tabla);
+
+                JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                scroll.setBounds(20, 400, 1250, 300);
+                panel.add(scroll);
+             
 
             }
+
         };
-        /*
-     btnCrear.addActionListener(eventoCrearUsuario);
-     
-     ActionListener eventoEliminarUsuario = new ActionListener(){
-             @Override
-             public void actionPerformed(ActionEvent ae) {
-                EliminarUsuario ventanaEliminarUsuario = new EliminarUsuario();
-                ventanaEliminarUsuario.setVisible(true);
-                dispose();
-
-             }
-         
-     };
-      btnEliminar.addActionListener(eventoEliminarUsuario);
-     
-      
-         ActionListener eventoModificarUsuario = new ActionListener(){
-             @Override
-             public void actionPerformed(ActionEvent ae) {
-                 ModificarUsuario ventanaModificarUsuario = new ModificarUsuario();
-                ventanaModificarUsuario.setVisible(true);
-                dispose();
-
-             }
-         
-     };
-      btnModificar.addActionListener(eventoModificarUsuario);
-         */
+        btnBuscar.addActionListener(eventofiltro);
 
     }
+
 }

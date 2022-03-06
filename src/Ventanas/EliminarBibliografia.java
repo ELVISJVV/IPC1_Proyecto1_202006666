@@ -467,7 +467,7 @@ public class EliminarBibliografia extends JFrame {
                     for (int i = pos; i < Static.disponiblesAlmacenado.length - 1; i++) {
                         Static.disponiblesAlmacenado[i] = Static.disponiblesAlmacenado[i + 1];
                     }
-                    Static.cantidadBiBibliografias--;
+                    Static.bibliografiaCreada--;
                     
                     
                     // eliminarFila(Biblioteca.obtenerDatos(), pos);

@@ -31,7 +31,7 @@ import javax.swing.SwingConstants;
 public class UsuarioAdmin extends JFrame {
 
     private JPanel panel;
-    private JLabel usuario, reporte, bibliografia;
+    private JLabel usuario, reporte, bibliografia, nameUsuario;
     private JTextArea area1, area2, area3, area4, area5;
     private JButton btnCrear, btnVer, btnModificar, btnEliminar, btnLogout, btnUsuarios, btnBibliografias, btnPrestamos, btnCrear1, btnVer1, btnModificar1, btnEliminar1;
     //private VerBibliografias tabla;
@@ -71,6 +71,15 @@ public class UsuarioAdmin extends JFrame {
         usuario.setFont(new Font("arial", 0, 25));
         usuario.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(usuario);
+        
+        
+        nameUsuario = new JLabel("ADMINISTRADOR");
+        //nameUsuario.setBackground(new Color(0, 00, 00, 0));
+        nameUsuario.setBounds(880, 50, 200, 120);
+        nameUsuario.setFont(new Font("arial", 0, 20));
+        //nameUsuario.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        //nameUsuario.setEditable(false);//editar el area de texto
+        panel.add(nameUsuario);
 
         reporte = new JLabel("Reportes");
         reporte.setBounds(670, 180, 200, 60);
