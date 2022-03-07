@@ -533,6 +533,7 @@ public class ModificarBibliografia extends JFrame {
                     area1.setText("");
                     copias1.setText("");
                     disponibles1.setText("");
+                     buscar1.setText("");
                 } else {
                     JOptionPane.showMessageDialog(modificar,
                             errores,

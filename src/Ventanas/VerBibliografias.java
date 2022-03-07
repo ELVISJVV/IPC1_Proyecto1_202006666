@@ -25,22 +25,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Elvis
  */
-public class VerBibliografias  extends JFrame{
- ///private String[] columnas; //Columnas de la tabla, referencia 
-  // private String[][] datos; //Datos presentados en la tabla  
+public class VerBibliografias extends JFrame {
+    ///private String[] columnas; //Columnas de la tabla, referencia 
+    // private String[][] datos; //Datos presentados en la tabla  
 
     private JPanel panel;
     private JLabel usuario;
     private JButton atras;
-     private JTable tbBiblio;
-     private DefaultTableModel modelo;
-   // private JScrollPane scroll;
-  //private String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
-       //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
+    private JTable tbBiblio;
+    private DefaultTableModel modelo;
+    // private JScrollPane scroll;
+    //private String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
+    //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
 
-    public VerBibliografias (){
-         setTitle("                                                                                                                                     VER BIBLIOGRAFIAS  ");
-       
+    public VerBibliografias() {
+        setTitle("                                                                                                                                     VER BIBLIOGRAFIAS  ");
+
         this.setSize(1300, 800);  //tamano de la ventana
         setMinimumSize(new Dimension(1300, 800)); // tamano minimo de ventana
         setMaximumSize(new Dimension(1300, 800));
@@ -49,29 +49,23 @@ public class VerBibliografias  extends JFrame{
         iniciarComponentes();
         // iniciarComponentes();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
-  
-  
-        
-        
+
     }
-     private void iniciarComponentes() {
+
+    private void iniciarComponentes() {
         colocarPanel();
         colocarBotones();
         colocarLabel();
-       
-      colocarTablas();
+
+        colocarTablas();
 
         //colocarAreasDeTexto();
         eventoAccion();
     }
-     
-    // VerBibliografias tabla= new VerBibliografias(datos,columnas);
-      // tabla.setVisible(true);
 
-     
-     
-/*
+    // VerBibliografias tabla= new VerBibliografias(datos,columnas);
+    // tabla.setVisible(true);
+    /*
       public VerBibliografias( String[][] datos, String[] columnas){
          // this.columnas= columnas;
          // this.datos= datos;
@@ -80,24 +74,21 @@ public class VerBibliografias  extends JFrame{
         colocarLabel();
           // eventoAccion();
       }
-     */     
-
-
-
+     */
     private void colocarPanel() {
-       
-panel = new JPanel();
+
+        panel = new JPanel();
         panel.setLayout(null);
         //panel.setSize(1300, 800);
         this.add(panel);
 
     }
 
-     private void colocarTablas() {
-         
-         modelo = new DefaultTableModel();
+    private void colocarTablas() {
 
-        //modelo.addColumn("NO.");
+        modelo = new DefaultTableModel();
+
+        modelo.addColumn("No.");
         modelo.addColumn("Tipo");
         modelo.addColumn("Autor");
         modelo.addColumn("Titulo");
@@ -109,9 +100,9 @@ panel = new JPanel();
         modelo.addColumn("Area");
         modelo.addColumn("Copias");
         modelo.addColumn("Disponibles");
-        
 
-        String[] matriz = new String[11];
+        String[] matriz = new String[12];
+
         matriz[0] = Static.tipoAlmacenado[Static.bibliografiaCreada];
         matriz[1] = Static.autorAlmacenado[Static.bibliografiaCreada];
         matriz[2] = Static.tituloAlmacenado[Static.bibliografiaCreada];
@@ -124,62 +115,53 @@ panel = new JPanel();
         matriz[9] = Static.copiasAlmacenado[Static.bibliografiaCreada];
         matriz[10] = Static.disponiblesAlmacenado[Static.bibliografiaCreada];
 
-       
-
         for (int i = 0; i < Static.bibliografiaCreada; i++) {
-          matriz[0] = Static.tipoAlmacenado[i];
-        matriz[1] = Static.autorAlmacenado[i];
-        matriz[2] = Static.tituloAlmacenado[i];
-        matriz[3] = Static.descripcionAlmacenado[i];
-        matriz[4] = Static.edicionAlmacenado[i];
-        matriz[5] = Static.temasAlmacenados[i];
-        matriz[6] = Static.frecuenciaAlmacenado[i];
-        matriz[7] = Static.ejemplaresAlmacenado[i];
-        matriz[8] = Static.areaAlmacenado[i];
-        matriz[9] = Static.copiasAlmacenado[i];
-        matriz[10] = Static.disponiblesAlmacenado[i];
+
+            String numCadena = String.valueOf(i);
+            matriz[0] = numCadena;
+            matriz[1] = Static.tipoAlmacenado[i];
+            matriz[2] = Static.autorAlmacenado[i];
+            matriz[3] = Static.tituloAlmacenado[i];
+            matriz[4] = Static.descripcionAlmacenado[i];
+            matriz[5] = Static.edicionAlmacenado[i];
+            matriz[6] = Static.temasAlmacenados[i];
+            matriz[7] = Static.frecuenciaAlmacenado[i];
+            matriz[8] = Static.ejemplaresAlmacenado[i];
+            matriz[9] = Static.areaAlmacenado[i];
+            matriz[10] = Static.copiasAlmacenado[i];
+            matriz[11] = Static.disponiblesAlmacenado[i];
             modelo.addRow(matriz);
 
         }
-         JTable tabla = new JTable(modelo);
+        JTable tabla = new JTable(modelo);
 
-        tabla.setBounds(100, 150, 1090, 4050);
+        tabla.setBounds(30, 150, 1200, 4050);
         panel.add(tabla);
 
         JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scroll.setBounds(100, 150, 1090, 450);
+        scroll.setBounds(30, 150, 1200, 450);
         panel.add(scroll);
-         
-       //   Static.datos=Biblioteca.obtenerDatos();
-         
-      //  tbBiblio = new JTable(Static.datos,columnas);
-       //  tbBiblio = new JTable(modelo);
 
-     //   tbBiblio.setBounds(100, 150, 1090, 4050);
-      //  panel.add(tbBiblio);
-
-      //  JScrollPane scroll = new JScrollPane(tbBiblio, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-      //  scroll.setBounds(100, 150, 1090, 450);
-      //  panel.add(scroll);
-
+        //   Static.datos=Biblioteca.obtenerDatos();
+        //  tbBiblio = new JTable(Static.datos,columnas);
+        //  tbBiblio = new JTable(modelo);
+        //   tbBiblio.setBounds(100, 150, 1090, 4050);
+        //  panel.add(tbBiblio);
+        //  JScrollPane scroll = new JScrollPane(tbBiblio, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //  scroll.setBounds(100, 150, 1090, 450);
+        //  panel.add(scroll);
         //String matriz[]=new String [];
     }
+
     private void colocarLabel() {
-       
-     
-        
-        
+
         usuario = new JLabel("Listado de Bibliografias");
         usuario.setBounds(450, 50, 400, 60);
         usuario.setFont(new Font("arial", 0, 35));
         usuario.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(usuario);
 
-      
         //panel.add(bibliografia);
-        
-         
-        
         /*
          tbBiblio = new JTable(datos,columnas);
        
@@ -194,24 +176,16 @@ panel = new JPanel();
        
        scroll.setBounds(100, 150, 1200, 700);
         panel.add(scroll);
-        */
-       
-
-        
-        
-            //Columnas y filas de la tabla
-         // String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
-    //      String datos[][] = Biblioteca.obtenerDatos(); //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
-
-      //   fmTabla = new VerBibliografias(datos,columnas); //Creación de objeto tipo TablaLectura, pasando como parámetros los datos y las columnas recuperadas
-      //     fmTabla.setVisible(true); //Se hace visible el Fram(TablaLecturas)
-            
-
+         */
+        //Columnas y filas de la tabla
+        // String columnas[] = { "Tipo","Autor", "Titulo",  "Descripcion", "Edición", "Temas", "Frecuencia Actual","Ejemplares","Área","Copias","Disponibles"}; //Listado de columnas/encabezados
+        //      String datos[][] = Biblioteca.obtenerDatos(); //Llamada al método estático obtener datos, de la clase Tienda. Recibe el arreglo de lecturas construido.
+        //   fmTabla = new VerBibliografias(datos,columnas); //Creación de objeto tipo TablaLectura, pasando como parámetros los datos y las columnas recuperadas
+        //     fmTabla.setVisible(true); //Se hace visible el Fram(TablaLecturas)
         //String matriz[]=new String [];
-
-
     }
-      private void colocarBotones() {
+
+    private void colocarBotones() {
         atras = new JButton();
         atras.setText("Regresar");
         atras.setBounds(50, 50, 120, 42);
@@ -219,7 +193,7 @@ panel = new JPanel();
         panel.add(atras);
 
     }
-     
+
     private void eventoAccion() {
         ActionListener eventoAtras = new ActionListener() {
             @Override

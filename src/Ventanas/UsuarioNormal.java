@@ -37,7 +37,7 @@ public class UsuarioNormal extends JFrame {
     private JLabel usuario, nameUsuario;
 
     private JTextArea area1, area2, area4;
-    private JButton btnBuscar, btnPrestamos, btnLogout;
+    private JButton btnBuscar, prestar, btnPrestamos, btnLogout;
     private JTextField buscarTma;
     private DefaultTableModel modelo;
 
@@ -58,7 +58,7 @@ public class UsuarioNormal extends JFrame {
         colocarPanel();
         colocarLabel();
         colocarBotones();
-      //  colocarTabla();
+        // colocarTabla();
         colocarAreasDeTexto();
         eventoBuscar();
         eventoAccion();
@@ -167,7 +167,7 @@ public class UsuarioNormal extends JFrame {
         modelo.addColumn("Area");
         modelo.addColumn("Copias");
         modelo.addColumn("Disponibles");
-        modelo.addColumn("Prestar");
+        //  modelo.addColumn("Prestar");
 
         String[] matriz = new String[11];
         matriz[0] = Static.tipoAlmacenado[Static.bibliografiaCreada];
@@ -230,6 +230,12 @@ public class UsuarioNormal extends JFrame {
         btnPrestamos.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(btnPrestamos);
 
+        prestar = new JButton();
+        prestar.setText("Prestar");
+        prestar.setBounds(780, 320, 200, 42);
+        prestar.setFont(new Font("arial", Font.BOLD, 20));
+        panel.add(prestar);
+
     }
 
     private void eventoAccion() {
@@ -245,6 +251,29 @@ public class UsuarioNormal extends JFrame {
         };
         btnLogout.addActionListener(eventoLogout);
 
+        ActionListener eventoPrestar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Prestar ventanaPrestar = new Prestar();
+                ventanaPrestar.setVisible(true);
+                dispose();
+
+            }
+
+        };
+        prestar.addActionListener(eventoPrestar);
+
+        ActionListener eventoVerPrestamos = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                ListadoPrestamos ventanaListaPres = new ListadoPrestamos();
+                ventanaListaPres.setVisible(true);
+                dispose();
+
+            }
+
+        };
+        btnPrestamos.addActionListener(eventoVerPrestamos);
     }
 
     private void eventoBuscar() {
@@ -267,15 +296,22 @@ public class UsuarioNormal extends JFrame {
                 modelo.addColumn("Area");
                 modelo.addColumn("Copias");
                 modelo.addColumn("Disponibles");
-                modelo.addColumn("Prestar");
+                //  modelo.addColumn("Prestar");
 
                 String[] matriz = new String[11];
-               
-                int cant=Static.bibliografiaCreada;
+
+                int cant = Static.bibliografiaCreada;
                 for (int i = 0; i < Static.bibliografiaCreada; i++) {
-                    String a =Static.temasAlmacenados[i];
+                    String a = Static.temasAlmacenados[i];
+                    String[] b = a.split(",");
+                    String[] x = new String[3];
+                    // x[0]=b[0];
+                    //   x[1]=b[1];
+                    //  x[2]=b[2];
+
                     System.out.println(a);
-                    if (Static.tituloAlmacenado[i].contains(filtro)) {
+                    // for (int j = 0; j < x.length; j++) {
+                    if (Static.tituloAlmacenado[i].toLowerCase().contains(filtro.toLowerCase())) {
                         System.out.println("si se encontro");
                         matriz[0] = Static.tipoAlmacenado[i];
                         matriz[1] = Static.autorAlmacenado[i];
@@ -289,20 +325,21 @@ public class UsuarioNormal extends JFrame {
                         matriz[9] = Static.copiasAlmacenado[i];
                         matriz[10] = Static.disponiblesAlmacenado[i];
                         modelo.addRow(matriz);
+                        //    break;
                     }
+
+                    // }
+                    JTable tabla = new JTable(modelo);
+                    //tabla.getColumnModel().getColumn(12);
+                    // tabla.setCellEditor(tabla.getDefaultEditor(Boolean.class));
+
+                    tabla.setBounds(20, 400, 1250, 300);
+                    panel.add(tabla);
+
+                    JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                    scroll.setBounds(20, 400, 1250, 300);
+                    panel.add(scroll);
                 }
-
-                JTable tabla = new JTable(modelo);
-                //tabla.getColumnModel().getColumn(12);
-                // tabla.setCellEditor(tabla.getDefaultEditor(Boolean.class));
-
-                tabla.setBounds(20, 400, 1250, 300);
-                panel.add(tabla);
-
-                JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-                scroll.setBounds(20, 400, 1250, 300);
-                panel.add(scroll);
-             
 
             }
 

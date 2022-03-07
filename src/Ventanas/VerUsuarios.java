@@ -81,6 +81,7 @@ public class VerUsuarios extends JFrame {
         modelo = new DefaultTableModel();
 
         //modelo.addColumn("NO.");
+        modelo.addColumn("No.");
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
@@ -88,7 +89,7 @@ public class VerUsuarios extends JFrame {
         modelo.addColumn("Rol");
         modelo.addColumn("Contraseña");
 
-        String[] matriz = new String[6];
+        String[] matriz = new String[7];
         matriz[0] = Static.idAlmacenado[Static.usuarioCreado];
 
         matriz[1] = Static.nombreAlmacenado[Static.usuarioCreado];
@@ -98,12 +99,14 @@ public class VerUsuarios extends JFrame {
         matriz[5] = Static.contraAlmacenada[Static.usuarioCreado];
 
         for (int i = 0; i < Static.usuarioCreado; i++) {
-            matriz[0] = Static.idAlmacenado[i];
-            matriz[1] = Static.nombreAlmacenado[i];
-            matriz[2] = Static.apellidoAlmacenado[i];
-            matriz[3] = Static.usuarioAlmacenado[i];
-            matriz[4] = Static.rolAlmacenado[i];
-            matriz[5] = Static.contraAlmacenada[i];
+            String numCadena= String.valueOf(i);
+            matriz[0]=numCadena;
+            matriz[1] = Static.idAlmacenado[i];
+            matriz[2] = Static.nombreAlmacenado[i];
+            matriz[3] = Static.apellidoAlmacenado[i];
+            matriz[4] = Static.usuarioAlmacenado[i];
+            matriz[5] = Static.rolAlmacenado[i];
+            matriz[6] = Static.contraAlmacenada[i];
             modelo.addRow(matriz);
 
         }

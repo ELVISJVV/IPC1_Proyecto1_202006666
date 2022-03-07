@@ -16,7 +16,7 @@ public class Principal {
         //ventanaLogin.setVisible(true);
 
         PantallaInicio ventanaInicio = new PantallaInicio();
-       ventanaInicio.setVisible(true);
+     //  ventanaInicio.setVisible(true);
 
         UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
         //ventanaAdmin.setVisible(true);
@@ -52,6 +52,9 @@ public class Principal {
        
        ModificarBibliografia ventanaModificarBiblio = new ModificarBibliografia();
      //  ventanaModificarBiblio.setVisible(true);
+     
+     ListadoPrestamos ventanaListaPres = new ListadoPrestamos();
+     ventanaListaPres.setVisible(true);
     }
 
 }

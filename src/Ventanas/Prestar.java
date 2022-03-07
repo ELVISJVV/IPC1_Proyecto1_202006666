@@ -5,12 +5,12 @@
  */
 package Ventanas;
 
-import Utilidades.MetodosSueltos;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.awt.image.ImageObserver.WIDTH;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,8 +27,8 @@ import javax.swing.SwingConstants;
  *
  * @author Elvis
  */
-public class EliminarBibliografia extends JFrame {
-
+public class Prestar extends JFrame{
+    
     private JRadioButton rb1;
     private JRadioButton rb2;
     private JRadioButton rb3;
@@ -37,11 +37,11 @@ public class EliminarBibliografia extends JFrame {
     private JLabel lbTipo, lbAutor, lbEdicion, lbDescripcion, lbTemas, lbFrecuencia, lbEjemplares, lbCopias, lbDisponibles, lbArea;
     private JComboBox listadespegable1;
     private String tipo = "0";
-    private JButton eliminar, atras, buscar;
+    private JButton prestar, atras, buscar;
     private JTextField tipo1, autor1, edicion1, descripcion1, temas1, frecuencia1, ejemplares1, copias1, disponibles1, area1, buscar1;
 
-    public EliminarBibliografia() {
-        setTitle("                                                                                                                                     ELIMINAR BIBLIOGRAFIA ");
+    public Prestar() {
+        setTitle("                                                                                                                                     PRESTAMO BIBLIOGRAFIA ");
 
         this.setSize(1300, 800);  //tamano de la ventana
         setMinimumSize(new Dimension(1300, 800)); // tamano minimo de ventana
@@ -159,11 +159,11 @@ public class EliminarBibliografia extends JFrame {
         buscar.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(buscar);
 
-        eliminar = new JButton();
-        eliminar.setText("Eliminar");
-        eliminar.setBounds(430, 660, 128, 48);
-        eliminar.setFont(new Font("arial", Font.BOLD, 20));
-        panel.add(eliminar);
+        prestar = new JButton();
+        prestar.setText("Prestar");
+        prestar.setBounds(430, 660, 128, 48);
+        prestar.setFont(new Font("arial", Font.BOLD, 20));
+        panel.add(prestar);
 
         atras = new JButton();
         atras.setText("Atras");
@@ -343,8 +343,9 @@ public class EliminarBibliografia extends JFrame {
         ActionListener eventoSalir = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
-                ventanaAdmin.setVisible(true);
+                
+        UsuarioNormal ventanaUsuarioNormal = new UsuarioNormal();
+        ventanaUsuarioNormal.setVisible(true);
                 dispose();
 
             }
@@ -423,76 +424,26 @@ public class EliminarBibliografia extends JFrame {
                     }
 
                 }
+             
 
                 if (pos == -1) {
                     //System.out.println("No se encontro el usuario");
-                    JOptionPane.showMessageDialog(eliminar,
+                    JOptionPane.showMessageDialog(prestar,
                             "Ingrese una Bibliografia",
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
-                    System.out.println("Si se encontro la bibliografia");
+                     int disponibilidadPrestamo=Integer.parseInt(Static.disponiblesAlmacenado[pos]); 
+                    if (disponibilidadPrestamo!=0) {
+                        System.out.println("Si se encontro la bibliografia");
 
-                    for (int i = pos; i < Static.tipoAlmacenado.length - 1; i++) {
-                        Static.tipoAlmacenado[i] = Static.tipoAlmacenado[i + 1];
-                    }
-
-                    for (int i = pos; i < Static.autorAlmacenado.length - 1; i++) {
-                        Static.autorAlmacenado[i] = Static.autorAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.tituloAlmacenado.length - 1; i++) {
-                        Static.tituloAlmacenado[i] = Static.tituloAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.descripcionAlmacenado.length - 1; i++) {
-                        Static.descripcionAlmacenado[i] = Static.descripcionAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.edicionAlmacenado.length - 1; i++) {
-                        Static.edicionAlmacenado[i] = Static.edicionAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.temasAlmacenados.length - 1; i++) {
-                        Static.temasAlmacenados[i] = Static.temasAlmacenados[i + 1];
-                    }
-                    for (int i = pos; i < Static.frecuenciaAlmacenado.length - 1; i++) {
-                        Static.frecuenciaAlmacenado[i] = Static.frecuenciaAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.ejemplaresAlmacenado.length - 1; i++) {
-                        Static.ejemplaresAlmacenado[i] = Static.ejemplaresAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.areaAlmacenado.length - 1; i++) {
-                        Static.areaAlmacenado[i] = Static.areaAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.copiasAlmacenado.length - 1; i++) {
-                        Static.copiasAlmacenado[i] = Static.copiasAlmacenado[i + 1];
-                    }
-                    for (int i = pos; i < Static.disponiblesAlmacenado.length - 1; i++) {
-                        Static.disponiblesAlmacenado[i] = Static.disponiblesAlmacenado[i + 1];
-                    }
-                    Static.bibliografiaCreada--;
                     
                     
-                    // eliminarFila(Biblioteca.obtenerDatos(), pos);
-                    /*
-                     for (int i = pos; i < datoss.length - 1; i++) {
-                       datoss[i] = datoss[i + 1];
-//
-               }
-                
-               
-                
-              
-                for (int i = 0; i < datoss.length; i++) {
-                         for (int j = 0; j < datoss[0].length; j++) {
-                             System.out.println(datoss[i][j]+"");
-                         }
-                         System.out.print("");
-                     }
-                     */
-                    // Static.cantidadBiBibliografias--;
-                    // eliminarFila(datos, pos);
-                    JOptionPane.showMessageDialog(eliminar,
-                            "Se ha eliminado la bibliografia con exito",
-                            "BIBLIOGRAFIA ELIMINADA",
-                            JOptionPane.ERROR_MESSAGE);
+                  
+                    JOptionPane.showMessageDialog(prestar,
+                            "Se ha prestado la bibliografia con exito",
+                            "PRESTAMO DE BIBLIOGRAFIA ",
+                            JOptionPane.INFORMATION_MESSAGE);
                     autor1.setText("");
                     tipo1.setText("");
                     descripcion1.setText("");
@@ -503,13 +454,31 @@ public class EliminarBibliografia extends JFrame {
                     area1.setText("");
                     copias1.setText("");
                     disponibles1.setText("");
-                     buscar1.setText("");
+                    buscar1.setText("");
+                    disponibilidadPrestamo--;
+                   Static.disponiblesAlmacenado[pos]= String.valueOf(disponibilidadPrestamo);
+                    String timeStamp = new SimpleDateFormat("yyyy/MM/dd      HH:mm:ss").format(Calendar.getInstance().getTime());
+                   
+                    Static.hora[Static.prestamoRealizado]=timeStamp;
+                    Static.usuarioPrestamo[Static.prestamoRealizado]=Static.USUARIONORMAL;
+                    Static.tituloPrestamo[Static.prestamoRealizado]=Static.tituloAlmacenado[pos];
+                    Static.tipoPrestamo[Static.prestamoRealizado]=Static.tipoAlmacenado[pos];
+                    Static.prestamoRealizado++;
+                   
+                    } else {
+                      JOptionPane.showMessageDialog(prestar,
+                            "   NO HAY DISPONIBILIDAD DE BIBLIOGRAFIA",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                 }
-                
 
             }
         };
-        eliminar.addActionListener(eventoEliminar);
+        prestar.addActionListener(eventoEliminar);
     }
 
 }
+
+
