@@ -27,8 +27,8 @@ import javax.swing.SwingConstants;
  *
  * @author Elvis
  */
-public class Prestar extends JFrame{
-    
+public class Prestar extends JFrame {
+
     private JRadioButton rb1;
     private JRadioButton rb2;
     private JRadioButton rb3;
@@ -343,9 +343,9 @@ public class Prestar extends JFrame{
         ActionListener eventoSalir = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
-        UsuarioNormal ventanaUsuarioNormal = new UsuarioNormal();
-        ventanaUsuarioNormal.setVisible(true);
+
+                UsuarioNormal ventanaUsuarioNormal = new UsuarioNormal();
+                ventanaUsuarioNormal.setVisible(true);
                 dispose();
 
             }
@@ -424,7 +424,6 @@ public class Prestar extends JFrame{
                     }
 
                 }
-             
 
                 if (pos == -1) {
                     //System.out.println("No se encontro el usuario");
@@ -433,45 +432,42 @@ public class Prestar extends JFrame{
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
-                     int disponibilidadPrestamo=Integer.parseInt(Static.disponiblesAlmacenado[pos]); 
-                    if (disponibilidadPrestamo!=0) {
+                    int disponibilidadPrestamo = Integer.parseInt(Static.disponiblesAlmacenado[pos]);
+                    if (disponibilidadPrestamo != 0) {
                         System.out.println("Si se encontro la bibliografia");
 
-                    
-                    
-                  
-                    JOptionPane.showMessageDialog(prestar,
-                            "Se ha prestado la bibliografia con exito",
-                            "PRESTAMO DE BIBLIOGRAFIA ",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    autor1.setText("");
-                    tipo1.setText("");
-                    descripcion1.setText("");
-                    edicion1.setText("");
-                    temas1.setText("");
-                    frecuencia1.setText("");
-                    ejemplares1.setText("");
-                    area1.setText("");
-                    copias1.setText("");
-                    disponibles1.setText("");
-                    buscar1.setText("");
-                    disponibilidadPrestamo--;
-                   Static.disponiblesAlmacenado[pos]= String.valueOf(disponibilidadPrestamo);
-                    String timeStamp = new SimpleDateFormat("yyyy/MM/dd      HH:mm:ss").format(Calendar.getInstance().getTime());
-                   
-                    Static.hora[Static.prestamoRealizado]=timeStamp;
-                    Static.usuarioPrestamo[Static.prestamoRealizado]=Static.USUARIONORMAL;
-                    Static.tituloPrestamo[Static.prestamoRealizado]=Static.tituloAlmacenado[pos];
-                    Static.tipoPrestamo[Static.prestamoRealizado]=Static.tipoAlmacenado[pos];
-                    Static.prestamoRealizado++;
-                   
+                        JOptionPane.showMessageDialog(prestar,
+                                "Se ha prestado la bibliografia con exito",
+                                "PRESTAMO DE BIBLIOGRAFIA ",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        autor1.setText("");
+                        tipo1.setText("");
+                        descripcion1.setText("");
+                        edicion1.setText("");
+                        temas1.setText("");
+                        frecuencia1.setText("");
+                        ejemplares1.setText("");
+                        area1.setText("");
+                        copias1.setText("");
+                        disponibles1.setText("");
+                        buscar1.setText("");
+                        disponibilidadPrestamo--;
+                        Static.disponiblesAlmacenado[pos] = String.valueOf(disponibilidadPrestamo);
+                        String timeStamp = new SimpleDateFormat("yyyy/MM/dd      HH:mm:ss").format(Calendar.getInstance().getTime());
+
+                        Static.hora[Static.prestamoRealizado] = timeStamp;
+                        Static.usuarioPrestamo[Static.prestamoRealizado] = Static.USUARIONORMAL;
+                        Static.tituloPrestamo[Static.prestamoRealizado] = Static.tituloAlmacenado[pos];
+                        Static.tipoPrestamo[Static.prestamoRealizado] = Static.tipoAlmacenado[pos];
+                        Static.prestamoRealizado++;
+
                     } else {
-                      JOptionPane.showMessageDialog(prestar,
-                            "   NO HAY DISPONIBILIDAD DE BIBLIOGRAFIA",
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(prestar,
+                                "   NO HAY DISPONIBILIDAD DE BIBLIOGRAFIA",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
                     }
-                    
+
                 }
 
             }
@@ -480,5 +476,3 @@ public class Prestar extends JFrame{
     }
 
 }
-
-

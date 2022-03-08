@@ -44,6 +44,7 @@ public class CargaMasiva extends JFrame {
              this.setResizable(false);
         setLayout(null);
         setLocationRelativeTo(this);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     private void construirComponentes() {
@@ -56,7 +57,7 @@ public class CargaMasiva extends JFrame {
 
         //Definición de area de texto
         txaEntrada = new JTextArea();
-
+        txaEntrada.setFont(new Font("arial", 0, 15));
         //Definición del panel
         scpScroll = new JScrollPane(txaEntrada);
         scpScroll.setBounds(55, 50, 990, 570);
@@ -90,22 +91,15 @@ public class CargaMasiva extends JFrame {
 
     }
 
-    /*
-     * El método cargarComics proporciona obtiene un texto del área de texto y lo separa en subcadenas
-     * Las subcadenas son utilizadas para ubicar colocar los valores iniciales de ciertos objetos Comic
-     * Los carácteres de escape son una forma alternativa de nombrar ciertos caracteres, como saltos de linea, tabulaciones, etc.
-     * No se separarán los géneros en esta parte, eso se ha implementado en la Clase Comic
-     */
+    
     public void cargarBibliografias(String texto) {
 
-        //Se separa el texto por líneas, el carácter utilizado ("\n") es un carácter de escape que hace referencia a un salto de línea
         String[] lineasTexto = texto.split("\n");
 
-        //Se recorre el arreglo de líneas con un bucle For Each
         for (String linea : lineasTexto) {
-            String[] atributos = linea.split(";"); //Cada línea se debe separar en otras sub cadenas para obtener los atributos separados por(";")
+            String[] atributos = linea.split(";"); 
 
-            if (atributos.length == 11) { //Las cadénas válidas de acuerdo con la entrada del usuario, deben contener 11 atributos separados por(";")
+            if (atributos.length == 11) { 
 
                 Static.tipoAlmacenado[Static.bibliografiaCreada]=atributos[0];
                 Static.autorAlmacenado[Static.bibliografiaCreada]=atributos[1];
@@ -121,11 +115,9 @@ public class CargaMasiva extends JFrame {
                 
                 
                 Static.bibliografiaCreada++;
-               // Bibliografia nuevaBibliografia = new Bibliografia(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6], atributos[7], atributos[8], atributos[9], atributos[10]);
-                //Biblioteca.colocarBibliografia(nuevaBibliografia); //Se ubica el comic en un arreglo de Comics
 
             } else {
-                System.out.println("Fila omitida, al no cumplir con la estructura de entrada"); //Mensaje en consola si existe una cadena que no tiene todos los atritutos
+                System.out.println("Fila omitida, al no cumplir con la estructura de entrada"); 
             }
         }
 

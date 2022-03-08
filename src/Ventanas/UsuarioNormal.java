@@ -311,7 +311,7 @@ public class UsuarioNormal extends JFrame {
 
                     System.out.println(a);
                     // for (int j = 0; j < x.length; j++) {
-                    if (Static.tituloAlmacenado[i].toLowerCase().contains(filtro.toLowerCase())) {
+                    if (Static.temasAlmacenados[i].toLowerCase().contains(filtro.toLowerCase())) {
                         System.out.println("si se encontro");
                         matriz[0] = Static.tipoAlmacenado[i];
                         matriz[1] = Static.autorAlmacenado[i];

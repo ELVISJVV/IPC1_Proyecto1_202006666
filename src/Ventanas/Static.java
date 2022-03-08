@@ -58,5 +58,13 @@ class Static {
     
     
     
+    // Listado de temas en los reportes 
+    static String[] temas = new String[100];
+    static String [] temasSplit = new String[100];
+    static int contador=0;
     
+    
+    public void numeroPrestamosUsuario(){
+        
+    }
 }

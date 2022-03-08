@@ -16,10 +16,10 @@ public class Principal {
         //ventanaLogin.setVisible(true);
 
         PantallaInicio ventanaInicio = new PantallaInicio();
-     //  ventanaInicio.setVisible(true);
+        //  ventanaInicio.setVisible(true);
 
         UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
-        //ventanaAdmin.setVisible(true);
+        ventanaAdmin.setVisible(true);
 
         ModificarUsuario ventanaModificarUsuario = new ModificarUsuario();
         //ventanaModificarUsuario.setVisible(true);
@@ -38,23 +38,20 @@ public class Principal {
 
         VerUsuarios ventanaVerUsuarios = new VerUsuarios();
         //ventanaVerUsuarios.setVisible(true);
-        
-        
+
         CargaMasiva ventanaMasiva = new CargaMasiva();
-      //  ventanaMasiva.setVisible(true);
-        
-      //  VerBibliografias ventanaVerBiblio = new VerBibliografias();
-       // ventanaVerBiblio.setVisible(true);
-       
-       EliminarBibliografia ventanaEliminarBiblio = new EliminarBibliografia();
-       //ventanaEliminarBiblio.setVisible(true);
-        
-       
-       ModificarBibliografia ventanaModificarBiblio = new ModificarBibliografia();
-     //  ventanaModificarBiblio.setVisible(true);
-     
-     ListadoPrestamos ventanaListaPres = new ListadoPrestamos();
-     ventanaListaPres.setVisible(true);
+        //  ventanaMasiva.setVisible(true);
+
+        //  VerBibliografias ventanaVerBiblio = new VerBibliografias();
+        // ventanaVerBiblio.setVisible(true);
+        EliminarBibliografia ventanaEliminarBiblio = new EliminarBibliografia();
+        //ventanaEliminarBiblio.setVisible(true);
+
+        ModificarBibliografia ventanaModificarBiblio = new ModificarBibliografia();
+        //  ventanaModificarBiblio.setVisible(true);
+
+        ListadoPrestamos ventanaListaPres = new ListadoPrestamos();
+        //  ventanaListaPres.setVisible(true);
     }
 
 }

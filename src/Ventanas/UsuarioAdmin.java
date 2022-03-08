@@ -332,5 +332,34 @@ public class UsuarioAdmin extends JFrame {
             }
         };
         btnModificar1.addActionListener(eventoModidfiBiblio);
+        ActionListener eventoPrestamos = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+               ReportePrestamos ventanaReP=new ReportePrestamos();
+               ventanaReP.setVisible(true);
+                dispose();
+            }
+        };
+        btnPrestamos.addActionListener(eventoPrestamos);
+        
+          ActionListener eventoRepoBiblio = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+               ReporteBibliografia ventanaRePBiblio=new ReporteBibliografia();
+               ventanaRePBiblio.setVisible(true);
+                dispose();
+            }
+        };
+        btnBibliografias.addActionListener(eventoRepoBiblio);
+        
+        ActionListener eventoRepoUsuario = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+               ReporteUsuarios ventanaUserReport = new ReporteUsuarios();
+               ventanaUserReport.setVisible(true);
+                dispose();
+            }
+        };
+        btnUsuarios.addActionListener(eventoRepoUsuario);
     }
 }

@@ -114,6 +114,7 @@ public class VerUsuarios extends JFrame {
         JTable tabla = new JTable(modelo);
 
         tabla.setBounds(100, 150, 1090, 4050);
+        tabla.setEnabled(false);
         panel.add(tabla);
 
         JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);

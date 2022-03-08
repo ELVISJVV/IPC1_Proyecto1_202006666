@@ -119,7 +119,15 @@ public class VerBibliografias extends JFrame {
 
             String numCadena = String.valueOf(i);
             matriz[0] = numCadena;
-            matriz[1] = Static.tipoAlmacenado[i];
+            String tipos =Static.tipoAlmacenado[i];
+                    if (tipos.equals("0")) {
+                        tipos="Libro";
+                    } else if (tipos.equals("1")) {
+                        tipos="Revista";
+                    } else if (tipos.equals("2")) {
+                        tipos="Tesis";
+                    }
+            matriz[1] = tipos;
             matriz[2] = Static.autorAlmacenado[i];
             matriz[3] = Static.tituloAlmacenado[i];
             matriz[4] = Static.descripcionAlmacenado[i];
@@ -135,11 +143,12 @@ public class VerBibliografias extends JFrame {
         }
         JTable tabla = new JTable(modelo);
 
-        tabla.setBounds(30, 150, 1200, 4050);
+        tabla.setBounds(15, 150, 1260, 4050);
+        tabla.setEnabled(false);
         panel.add(tabla);
 
         JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scroll.setBounds(30, 150, 1200, 450);
+        scroll.setBounds(15, 150, 1260, 450);
         panel.add(scroll);
 
         //   Static.datos=Biblioteca.obtenerDatos();

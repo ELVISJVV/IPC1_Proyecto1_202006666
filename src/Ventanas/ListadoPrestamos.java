@@ -77,46 +77,50 @@ public class ListadoPrestamos extends JFrame {
         modelo = new DefaultTableModel();
 
         modelo.addColumn("No.");
-        modelo.addColumn("Usuario");
+       // modelo.addColumn("Usuario");
         modelo.addColumn("Titulo");
         modelo.addColumn("Tipo");
         modelo.addColumn("Fecha y Hora");
 
-        String[] matriz = new String[5];
-        matriz[1] = Static.usuarioPrestamo[Static.prestamoRealizado];
-        matriz[2] = Static.tituloPrestamo[Static.prestamoRealizado];
-        matriz[3] = Static.tipoPrestamo[Static.prestamoRealizado];
-        matriz[4] = Static.hora[Static.prestamoRealizado];
-
+        String[] matriz = new String[4];
+        matriz[0] = Static.usuarioPrestamo[Static.prestamoRealizado];
+        matriz[1] = Static.tituloPrestamo[Static.prestamoRealizado];
+        matriz[2] = Static.tipoPrestamo[Static.prestamoRealizado];
+        matriz[3] = Static.hora[Static.prestamoRealizado];
+        
+         int contadorPrestamos=0;
         for (int i = 0; i < Static.prestamoRealizado; i++) {
             if (Static.usuarioPrestamo[i].equals(Static.USUARIONORMAL)) {
                 String numCadena = String.valueOf(i);
                 matriz[0] = numCadena;
-                matriz[1] = Static.usuarioPrestamo[i];
+                contadorPrestamos++;
+               // matriz[1] = Static.usuarioPrestamo[i];
 
-                matriz[2] = Static.tituloPrestamo[i];
-                String tipos =Static.tipoPrestamo[i];
-                    if (tipos.equals("0")) {
-                        tipos="Libro";
-                    } else if (tipos.equals("1")) {
-                        tipos="Revista";
-                    } else if (tipos.equals("2")) {
-                        tipos="Tesis";
-                    }
-                matriz[3] = tipos;
-                matriz[4] = Static.hora[i];
+                matriz[1] = Static.tituloPrestamo[i];
+                String tipos = Static.tipoPrestamo[i];
+                if (tipos.equals("0")) {
+                    tipos = "Libro";
+                } else if (tipos.equals("1")) {
+                    tipos = "Revista";
+                } else if (tipos.equals("2")) {
+                    tipos = "Tesis";
+                }
+                matriz[2] = tipos;
+                matriz[3] = Static.hora[i];
                 modelo.addRow(matriz);
 
             }
-
+           
         }
+         System.out.println("numero de prestamos"+contadorPrestamos);
         JTable tabla = new JTable(modelo);
 
-        tabla.setBounds(30, 450, 1200, 250);
+        tabla.setBounds(15, 450, 1260, 250);
+        tabla.setEnabled(false);
         panel.add(tabla);
 
         JScrollPane scroll = new JScrollPane(tabla, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scroll.setBounds(30, 450, 1200, 250);
+        scroll.setBounds(15, 450, 1260, 250);
         panel.add(scroll);
 
     }
@@ -211,6 +215,8 @@ public class ListadoPrestamos extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 String buscarTitulo = encontrar.getText();
                 int pos = -1;
+                
+               
                 for (int i = 0; i < Static.prestamoRealizado; i++) {
                     if (Static.usuarioPrestamo[i].equals(Static.USUARIONORMAL)) {
                         for (int j = 0; j < 100; j++) {
