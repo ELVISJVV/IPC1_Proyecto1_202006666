@@ -377,7 +377,8 @@ public class CargaIndividual extends JFrame {
                 String titulo = titulo1.getText();
                 String descripcion = descripcion1.getText();
                 String edicion = edicion1.getText();
-                String temas = temas1.getText();
+
+                String temas = temas1.getText();;
                 String frecuencia = frecuencia1.getText();
                 String ejemplares = ejemplares1.getText();
                 String area = area1.getText();

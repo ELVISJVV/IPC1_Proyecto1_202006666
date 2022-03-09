@@ -67,11 +67,11 @@ public class PantallaInicio extends JFrame {
         visionContenido.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(visionContenido);
         
-        final ImageIcon imagen1 = new ImageIcon(getClass().getResource("/Imagenes/biblioteca.JFIF"));
+       final ImageIcon imagen1 = new ImageIcon(getClass().getResource("/Imagenes/biblioteca.JFIF"));
         
-        JLabel biblioteca = new JLabel();
-        biblioteca.setBounds(0, 0, 1300, 160);
-        biblioteca.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(biblioteca.getWidth(), biblioteca.getHeight(), Image.SCALE_SMOOTH)));
+       JLabel biblioteca = new JLabel();
+       biblioteca.setBounds(0, 0, 1300, 160);
+       biblioteca.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(biblioteca.getWidth(), biblioteca.getHeight(), Image.SCALE_SMOOTH)));
         
         panel.add(biblioteca);
         

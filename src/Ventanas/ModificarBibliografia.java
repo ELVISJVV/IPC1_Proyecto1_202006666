@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.awt.image.ImageObserver.WIDTH;
+//import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -77,7 +77,8 @@ public class ModificarBibliografia extends JFrame {
 
     private void colocarListaDespegable() {
         //  String [] rol ={"Revista", "Libro", "Tesis"};
-        listadespegable1 = new JComboBox<String>();
+      /*
+          listadespegable1 = new JComboBox<String>();
         listadespegable1.setFont(new Font("arial", 0, 25));
         listadespegable1.setBounds(270, 50, 300, 60);
         listadespegable1.addItem("Libro");
@@ -87,6 +88,9 @@ public class ModificarBibliografia extends JFrame {
         //listadespegable1.setSelectedItem("colombia");// seleccionar el primer objeto visto
         panel.add(listadespegable1);
         //listadespegable1.addItemListener(this);
+        */
+      
+      
     }
 
     private void colocarLabel() {
@@ -444,7 +448,10 @@ public class ModificarBibliografia extends JFrame {
                 String autor = autor1.getText();
                 String descripcion = descripcion1.getText();
                 String edicion = edicion1.getText();
+                 //String str=temas1.getText();
+                
                 String temas = temas1.getText();
+              
                 String frecuencia = frecuencia1.getText();
                 String ejemplares = ejemplares1.getText();
                 String area = area1.getText();

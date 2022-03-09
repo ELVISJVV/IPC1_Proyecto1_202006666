@@ -16,10 +16,10 @@ public class Principal {
         //ventanaLogin.setVisible(true);
 
         PantallaInicio ventanaInicio = new PantallaInicio();
-        //  ventanaInicio.setVisible(true);
+        ventanaInicio.setVisible(true);
 
         UsuarioAdmin ventanaAdmin = new UsuarioAdmin();
-        ventanaAdmin.setVisible(true);
+      //  ventanaAdmin.setVisible(true);
 
         ModificarUsuario ventanaModificarUsuario = new ModificarUsuario();
         //ventanaModificarUsuario.setVisible(true);

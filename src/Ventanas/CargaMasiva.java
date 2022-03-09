@@ -106,6 +106,9 @@ public class CargaMasiva extends JFrame {
                 Static.tituloAlmacenado[Static.bibliografiaCreada]=atributos[2];
                 Static.descripcionAlmacenado[Static.bibliografiaCreada]=atributos[3];
                 Static.edicionAlmacenado[Static.bibliografiaCreada]=atributos[4];
+               //  String str=atributos[5];
+                
+              //  String temas = str.replace(" ", "");
                 Static.temasAlmacenados[Static.bibliografiaCreada]=atributos[5];
                 Static.frecuenciaAlmacenado[Static.bibliografiaCreada]=atributos[6];
                 Static.ejemplaresAlmacenado[Static.bibliografiaCreada]=atributos[7];

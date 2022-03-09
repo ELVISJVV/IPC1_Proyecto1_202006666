@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Utilidades.MetodosSueltos;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,10 +61,9 @@ public class ReporteBibliografia extends JFrame {
         String columnas = "         <tr>\n"
                 + "             <th>Temas.</th>\n"
                 + "             <th>Cantidad</th>\n"
-                
                 + "         </tr>\n"
                 + "           <tr>\n";
-        
+
         String parteFinal = "         </tr>\n"
                 + "       </table>\n"
                 + " </body>\n"
@@ -77,14 +77,145 @@ public class ReporteBibliografia extends JFrame {
         scpScroll.setBounds(55, 50, 990, 570);
 
         txaEntrada.setText(primeraPrte + columnas);
-        int contadorTemas=0;
-        for (int i = 0; i < Static.temasAlmacenados.length; i++) {
-            String  lineasTexto = Static.temasAlmacenados[i];
-             String [] linea =lineasTexto.split(",");
-            if (rootPaneCheckingEnabled) {
-                
-            }
+        int contadorTemas = 0;
+        String[] temas = new String[300];
+        //
+        String[] temasTotaleds = new String[300];
+        String lineasTexto;
+        String[] linea;
+        //for (int i = 0; i < Static.temasAlmacenados.length; i++) {
+        //lineasTexto = Static.temasAlmacenados[i];
+        //String [] linea =lineasTexto.split(",");
+        // temas=Static.temasAlmacenados[i].split(",");
+        //System.out.println(temas);
+        // for (int j = 0; j <contadorTemas; j++) {
+        //    lineasTexto = Static.temasAlmacenados[j];
+        //    linea =lineasTexto.split(",");
+        ///   // System.out.println(temas+"\n");
+        //     System.out.println(linea + "\n");
+        //    contadorTemas++;
+        // }
+        //if (rootPaneCheckingEnabled) {
+
+        //}
+        //}
+        String temass = String.join(",", Static.temasAlmacenados);
+        System.out.println("temass = " + temass);
+        String[] temasSplit = temass.split(",");
+        int a = 0;
+        
+        String aux;
+        /*
+          for(int i=1; i<=temasSplit.length; i++) {  
+            for(int j=0; j<temasSplit.length-i; j++) { 
+                if( temasSplit[j].compareTo( temasSplit[j+1] ) > 0 ) { 
+                    aux   = temasSplit[j]; 
+                    temasSplit[j]  = temasSplit[j+1]; 
+                    temasSplit[j+1]= aux; 
+                }    
+            } 
         }
+        */
+       
+         MetodosSueltos.ordenamiento(temasSplit);
+         for (int i = 0; i < temasSplit.length; i++) {
+             System.out.println(temasSplit[i]);
+        }
+         
+         //for(int i=0; i<temasSplit.length; i++) 
+             
+      // {
+         //   if (temasSplit[i].equals("null")) {
+          //      break;
+          //  }
+          //  System.out.println( " A[" + i + "] = " + temasSplit[i] ); }
+        
+         
+         int contador=0;
+         String auxiliar =temasSplit[0];
+         for (int i = 0; i < temasSplit.length; i++) {
+            if (temasSplit[i].equals("null")) {
+                break;
+            }
+            if (auxiliar.equals(temasSplit[i])){
+                contador ++;
+            }else{
+                String az= String.valueOf(contador);
+              txaEntrada.append("    <tr>\n");
+            txaEntrada.append("        <td>");
+            txaEntrada.append(auxiliar);
+            txaEntrada.append("         </td>\n");
+            txaEntrada.append("         <td>");
+            txaEntrada.append(az);
+            txaEntrada.append("         </td>\n");
+           // txaEntrada.append("     </tr>\n");
+                contador=1;
+                auxiliar=temasSplit[i];
+            }
+            
+                
+        }
+          String az= String.valueOf(contador);
+         txaEntrada.append("    <tr>\n");
+            txaEntrada.append("        <td>");
+            txaEntrada.append(auxiliar);
+            txaEntrada.append("         </td>\n");
+            txaEntrada.append("         <td>");
+            txaEntrada.append(az);
+            txaEntrada.append("         </td>\n");
+            txaEntrada.append("     </tr>\n");
+         /*
+        for (int i = 0; i < temasSplit.length; i++) {
+             String numCadena = String.valueOf(i);
+             int contador=0;
+            if (temasSplit[i].equals("null")) {
+                break;
+            }
+            
+            for (int j = 0; j < temasSplit.length; j++) {
+                if (temasSplit[i].equals(temasSplit[j])) {
+                    contador++;
+                    
+                }
+            }
+            for (int j = 0; j < temasSplit.length; j++) {
+                if (!temasSplit[i].equals(temasSplit[j])) {
+                    
+            String az= String.valueOf(contador);
+              txaEntrada.append("    <tr>\n");
+            txaEntrada.append("        <td>");
+            txaEntrada.append(temasSplit[i]);
+            txaEntrada.append("         </td>\n");
+            txaEntrada.append("         <td>");
+            txaEntrada.append(az);
+            txaEntrada.append("         </td>\n");
+            txaEntrada.append("     </tr>\n");
+                    break;
+                }
+            }
+            
+            
+            //a++;
+            System.out.println(temasSplit[i]);
+
+        }
+        */
+        
+        /*
+        String newMatriz[] =new String[a];
+        for (int i = 0; i < temasSplit.length; i++) {
+            if (temasSplit[i].equals("null")) {
+                break;
+              
+
+            }
+            newMatriz[i]=temasSplit[i];
+
+        }
+        //for (int i = 0; i < a; i++) {
+            System.out.println(newMatriz);
+      //  }
+
         for (int i = 0; i < Static.prestamoRealizado; i++) {
             String numCadena = String.valueOf(i);
 
@@ -95,15 +226,12 @@ public class ReporteBibliografia extends JFrame {
             txaEntrada.append("         <td>");
             txaEntrada.append(Static.usuarioPrestamo[i] + "");
             txaEntrada.append("         </td>\n");
-            txaEntrada.append("         <td>");
-            txaEntrada.append(Static.tituloPrestamo[i] + "");
-            txaEntrada.append("         </td>\n");
-            txaEntrada.append("         <td>");
-            txaEntrada.append(Static.hora[i] + "");
-            txaEntrada.append("         </td>\n");
+            
             txaEntrada.append("     </tr>\n");
 
         }
+        */
+        
         txaEntrada.append(parteFinal);
         plCarga.add(scpScroll);
 

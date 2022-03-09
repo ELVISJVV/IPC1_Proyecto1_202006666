@@ -29,5 +29,20 @@ public class MetodosSueltos {
     public static boolean validaNumeroReal_Exp(String texto) {
         return texto.matches("^-?[0-9]+([\\.,][0-9]+)?$");
     }
-
+    
+    public static String [] ordenamiento(String[] words){
+        for(int i = 0; i < words.length - 1; i++)
+        {
+            for(int j = i+1; j < words.length; j++)
+            {
+                if(words[i].compareTo(words[j]) > 0)//words[i] is greater than words[j]
+                {
+                    String temp = words[i];
+                    words[i] = words[j];
+                    words[j] = temp;
+                }
+            }
+        }
+        return words;
+    }
 }
