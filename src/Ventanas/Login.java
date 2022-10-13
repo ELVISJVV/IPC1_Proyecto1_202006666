@@ -76,13 +76,13 @@ public class Login extends JFrame {
         contrasena.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(contrasena);
 
-        //final ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/login.PNG"));
+        final ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/login.PNG"));
 
-        //JLabel imagenUsuario = new JLabel();
-        //imagenUsuario.setBounds(200, 30, 150, 150);
-        //imagenUsuario.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imagenUsuario.getWidth(), imagenUsuario.getHeight(), Image.SCALE_SMOOTH)));
+        JLabel imagenUsuario = new JLabel();
+        imagenUsuario.setBounds(200, 30, 150, 150);
+       imagenUsuario.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imagenUsuario.getWidth(), imagenUsuario.getHeight(), Image.SCALE_SMOOTH)));
 
-       // panel.add(imagenUsuario);
+        panel.add(imagenUsuario);
     }
 
     private void colocarCajasDeTexto() {

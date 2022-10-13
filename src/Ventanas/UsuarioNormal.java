@@ -87,21 +87,20 @@ public class UsuarioNormal extends JFrame {
         //nameUsuario.setEditable(false);//editar el area de texto
         panel.add(nameUsuario);
 
-        //final ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/login.PNG"));
+        final ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/login.PNG"));
 
-      //  JLabel imagenUsuario = new JLabel();
-      //  imagenUsuario.setBounds(720, 50, 120, 120);
-     //   imagenUsuario.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imagenUsuario.getWidth(), imagenUsuario.getHeight(), Image.SCALE_SMOOTH)));
+      JLabel imagenUsuario = new JLabel();
+       imagenUsuario.setBounds(720, 50, 120, 120);
+       imagenUsuario.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(imagenUsuario.getWidth(), imagenUsuario.getHeight(), Image.SCALE_SMOOTH)));
 
-     //   panel.add(imagenUsuario);
+       panel.add(imagenUsuario);
 
-      //  final ImageIcon imagen2 = new ImageIcon(getClass().getResource("/Imagenes/logo.PNG"));
+       final ImageIcon imagen2 = new ImageIcon(getClass().getResource("/Imagenes/logo.PNG"));
 //
-    //    JLabel imagenLogo = new JLabel();
-   //     imagenLogo.setBounds(20, 80, 600, 200);
-   //     imagenLogo.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(imagenLogo.getWidth(), imagenLogo.getHeight(), Image.SCALE_SMOOTH)));
-
-   //     panel.add(imagenLogo);
+        JLabel imagenLogo = new JLabel();
+       imagenLogo.setBounds(20, 80, 600, 200);
+       imagenLogo.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(imagenLogo.getWidth(), imagenLogo.getHeight(), Image.SCALE_SMOOTH)));
+        panel.add(imagenLogo);
     }
 
     private void colocarAreasDeTexto() {

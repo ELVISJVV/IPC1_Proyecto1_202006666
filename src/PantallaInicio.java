@@ -67,21 +67,21 @@ public class PantallaInicio extends JFrame {
         visionContenido.setHorizontalAlignment(SwingConstants.LEFT);
         panel.add(visionContenido);
         
-    // final ImageIcon imagen1 = new ImageIcon(this.getClass().getResource("biblioteca.JFIF"));
+     final ImageIcon imagen1 = new ImageIcon(this.getClass().getResource("biblioteca.JFIF"));
         
-     // JLabel biblioteca = new JLabel();
-     // biblioteca.setBounds(0, 0, 1300, 160);
-     // biblioteca.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(biblioteca.getWidth(), biblioteca.getHeight(), Image.SCALE_SMOOTH)));
+      JLabel biblioteca = new JLabel();
+      biblioteca.setBounds(0, 0, 1300, 160);
+      biblioteca.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(biblioteca.getWidth(), biblioteca.getHeight(), Image.SCALE_SMOOTH)));
       
-      //  panel.add(biblioteca);
+        panel.add(biblioteca);
         
-     //   final ImageIcon imagen = new ImageIcon(getClass().getResource("../Imagenes/logo.PNG"));
+        final ImageIcon imagen = new ImageIcon(getClass().getResource("../Imagenes/logo.PNG"));
         
-    //   JLabel logo = new JLabel();
-     //   logo.setBounds(23, 220, 788, 300);
-     //   logo.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH)));
+       JLabel logo = new JLabel();
+        logo.setBounds(23, 220, 788, 300);
+       logo.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH)));
         
-    //    panel.add(logo);
+        panel.add(logo);
     }
     
     private void colocarBotones() {
